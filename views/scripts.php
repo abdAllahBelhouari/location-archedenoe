@@ -8,4 +8,5 @@
 <script src="assets/js/swiper-bundle.min.js"></script>
 
 <script src="assets/js/main.js"></script>
+<script src="assets/js/sweetalert2.all.min.js"></script>
 <script src="assets/js/functions.js"></script>

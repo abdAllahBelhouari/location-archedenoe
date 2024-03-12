@@ -94,6 +94,23 @@ class Condition {
         }                    
     }
 
+    public function deleteCondition($id){
+        global $db;
+        $idTerme=$db->quote($id);
+        $sql=$db->prepare("DELETE FROM terme WHERE idTerme = $idTerme");
+        if($sql->execute()){
+            return [
+                "result" => true,
+                "response" => "La condition a été supprimée avec succès."
+            ];
+        }else{
+            return [
+                "result" => false,
+                "response" => "La condition n'a pas été supprimée."
+            ];
+        }
+    }
+
     public function getConditions(){
         global $db;
         return $db->query("SELECT * FROM terme ORDER BY indexTerme,titreTerme")->fetchAll();
@@ -131,6 +148,31 @@ class Condition {
                             WHERE webTerme=1 
                             ORDER BY indexTerme
                         ")->fetchAll();
+    }
+
+    public function reindexation($data) {
+        global $db;
+        $maj=0;
+        foreach ($data as $id => $value) {
+            $idTerme=$db->quote($id);
+            $indexTerme=$db->quote($value);
+            $sql=$db->prepare("UPDATE terme SET indexTerme=$indexTerme WHERE idTerme=$idTerme");
+            if ( $sql->execute() ) {
+                $maj++;
+            }
+        }
+        if($maj==0){
+            return [
+                "result" => false,
+                "response" => "Les conditions n'ont pas été réindéxées."
+            ];
+        }else{
+            return [
+                "result" => true,
+                "response" => "Les conditions ont été réindéxées avec succès."
+            ];
+        }
+        die();
     }
 }
 

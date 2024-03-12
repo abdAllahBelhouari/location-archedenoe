@@ -39,3 +39,47 @@ function VerifCasse(evt,type) {
             }
     }
 }
+
+
+function sweetAlert(titre, message, url, icon = 'question') {
+	const swalWithBootstrapButtons = Swal.mixin({
+		customClass: {
+			confirmButton: "btn btn-success",
+			cancelButton: "btn btn-danger",
+		},
+		buttonsStyling: false,
+	});
+	swalWithBootstrapButtons
+	.fire({
+		title: titre,
+		text: message,
+		icon: icon,
+		showCancelButton: true,
+		confirmButtonText: "Confirmer",
+		cancelButtonText: "Annuler",
+		reverseButtons: true,
+	})
+	.then((result) => {
+		if (result.isConfirmed) {
+			swalWithBootstrapButtons.fire({
+			title: "Confirmation",
+			text: "Votre demande est en cours de traitement...",
+			icon: "success",
+			showConfirmButton: false,
+			timer: 2500
+			});
+			setTimeout(() => { window.location.href = url; }, "2500");
+		} else if (
+			/* Read more about handling dismissals below */
+			result.dismiss === Swal.DismissReason.cancel
+			) {
+				swalWithBootstrapButtons.fire({
+				title: "Annulation !",
+				text: "Traitement en cours...",
+				icon: "error",
+				showConfirmButton: false,
+				timer: 2000
+			});
+		}
+	});
+}

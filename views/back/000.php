@@ -1,5 +1,5 @@
 <?php
-
+	Login::controlAccess([1]);
 
 	
 	require_once('../views/header.php');
