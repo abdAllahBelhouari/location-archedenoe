@@ -1141,7 +1141,6 @@ section {
 --------------------------------------------------------------*/
 .myaccordion dl,
 .myaccordion-list {
-
 	&:after {
 		content: "";
 		display: block;
@@ -1150,30 +1149,25 @@ section {
 		background-color: darken(#5281b6, 10%);
 	}
 }
-
 .myaccordion dd,
 .myaccordion__panel {
-	background-color: #eee;
+	background: #fff;
+	border-bottom: 1px solid #ddd;
 	font-size: 1em;
 	line-height: 1.5em;
 }
-
-.myaccordion p {
-	padding: 1em 2em;
-}
-
+.myaccordion p { padding: 1em 1.5em; }
 .myaccordion {
 	position: relative;
 	background-color: #fff;
 	margin-top: 50px;
 }
-
 .myaccordionTitle,
 .myaccordion__Heading {
-	background-color: #213d5d;
+	background: linear-gradient(#fafafa, #eee);
 	text-align: left;
 	font-weight: 600;
-	padding: 1em;
+	padding: .7em 1.5em;
 	display: block;
 	text-decoration: none;
 	color: #aaa;
@@ -1189,20 +1183,18 @@ section {
 
 	&:hover {
 		background-color: darken(#73adf0, 10%);
-		color: #fff;
+		color: #213d5d;
 	}
 }
-
 .myaccordionTitleActive,
 .myaccordionTitle.is-expanded {
 	background-color: darken(#73adf0, 10%);
-	color: #fff;
+	color: #aaa;
 
 	&:before {
 		transform: rotate(-225deg);
 	}
 }
-
 .myaccordionItem {
 	height: auto;
 	overflow: hidden;
@@ -1214,36 +1206,23 @@ section {
 		transition: max-height 0.5s
 	}
 }
-
-.myaccordionItem.is-collapsed {
-	max-height: 0;
-}
-
-.no-js .myaccordionItem.is-collapsed {
-	max-height: auto;
-}
-
-.animateIn {
-	animation: myaccordionIn 0.45s normal ease-in-out both 1;
-}
-
+.myaccordionItem.is-collapsed { max-height: 0; }
+.no-js .myaccordionItem.is-collapsed { max-height: auto; }
+.animateIn { animation: myaccordionIn 0.45s normal ease-in-out both 1; }
 .animateOut {
 	animation: myaccordionOut 0.45s alternate ease-in-out both 1;
 }
-
 @keyframes myaccordionIn {
 	0% {
 		opacity: 0;
 		transform: scale(0.9) rotateX(-60deg);
 		transform-origin: 50% 0;
 	}
-
 	100% {
 		opacity: 1;
 		transform: scale(1);
 	}
 }
-
 @keyframes myaccordionOut {
 	0% {
 		opacity: 1;
@@ -1271,6 +1250,11 @@ section {
 .footer-link  li a {
 	color: #fff;
 	line-height: 20pt;
+}
+.footer-link-img {
+	max-width: 50px;
+	max-height: 50px;
+	margin-top: 10px;
 }
 .footer-link li:hover a {
 	font-weight: normal;

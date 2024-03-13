@@ -1,5 +1,5 @@
+<hr>
 <div class="myaccordion">
-	<hr>
 	<h2>Une question ?</h2>
 	<dl>
 		<dt>

@@ -18,6 +18,8 @@
 			<div class="col-md-3 footer-link">
 				<li><a href='?route=cgu'>C.G.U.</a></li>
 				<li><a href='?route=mentions'>Mentions légales</a></li>
+				<a href='https://www.facebook.com/institutarchedenoe/'><img class="footer-link-img"
+						src="assets/img/fb.png" alt="Suivez-nous sur facebbok"></a>
 			</div>
 		</div>
 		<div class="copyright">
