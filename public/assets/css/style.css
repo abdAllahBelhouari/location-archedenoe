@@ -3,29 +3,29 @@
   #213d5d
 --------------------------------------------------------------*/
 body {
-  background: #fff;
-  color: #666666;
-  font-family: "Open Sans", sans-serif;
+	background: #fff;
+	color: #666666;
+	font-family: "Open Sans", sans-serif;
 }
 
 a {
-  color: #213d5d; 
-  text-decoration: none;
-  transition: all .4s;
+	color: #213d5d; 
+	text-decoration: none;
+	transition: all .4s;
 }
 
 a:hover,
 a:active,
 a:focus {
-  color: #213d5d;
-  font-weight: 600;
-  outline: none;
-  text-decoration: none;
+	color: #213d5d;
+	font-weight: 600;
+	outline: none;
+	text-decoration: none;
 }
 
 p {
-  padding: 0;
-  margin: 0 0 30px 0;
+	padding: 0;
+	margin: 0 0 30px 0;
 }
 
 h1,
@@ -34,13 +34,13 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  margin: 0 0 20px 0;
-  padding: 0;
+	font-family: "Poppins", sans-serif;
+	font-weight: 400;
+	margin: 0 0 20px 0;
+	padding: 0;
 }
 .col-iadn {
-  color: #213d5d; 
+	color: #213d5d; 
 }
 .flash {
   margin: 10px;
@@ -203,8 +203,8 @@ button:hover, .mybtn:hover, .mybtn-light {
   margin-top: 70px;
 }
 .introuvable {
- margin: 20% auto;
- text-align: center;
+	margin: 10% auto 20%;
+	text-align: center;
 }
 
 /*--------------------------------------------------------------
@@ -1136,6 +1136,125 @@ section {
   }
 }
 
+/*--------------------------------------------------------------
+# myaccordion
+--------------------------------------------------------------*/
+.myaccordion dl,
+.myaccordion-list {
+
+	&:after {
+		content: "";
+		display: block;
+		height: 1em;
+		width: 100%;
+		background-color: darken(#5281b6, 10%);
+	}
+}
+
+.myaccordion dd,
+.myaccordion__panel {
+	background-color: #eee;
+	font-size: 1em;
+	line-height: 1.5em;
+}
+
+.myaccordion p {
+	padding: 1em 2em;
+}
+
+.myaccordion {
+	position: relative;
+	background-color: #fff;
+	margin-top: 50px;
+}
+
+.myaccordionTitle,
+.myaccordion__Heading {
+	background-color: #213d5d;
+	text-align: left;
+	font-weight: 600;
+	padding: 1em;
+	display: block;
+	text-decoration: none;
+	color: #aaa;
+	transition: background-color 0.5s ease-in-out;
+
+	&:before {
+		content: "+";
+		font-size: 1.5em;
+		line-height: 0.5em;
+		float: right;
+		transition: transform 0.3s ease-in-out;
+	}
+
+	&:hover {
+		background-color: darken(#73adf0, 10%);
+		color: #fff;
+	}
+}
+
+.myaccordionTitleActive,
+.myaccordionTitle.is-expanded {
+	background-color: darken(#73adf0, 10%);
+	color: #fff;
+
+	&:before {
+		transform: rotate(-225deg);
+	}
+}
+
+.myaccordionItem {
+	height: auto;
+	overflow: hidden;
+	max-height: 50em;
+	transition: max-height 1s;
+
+	@media screen and (min-width:48em) {
+		max-height: 15em;
+		transition: max-height 0.5s
+	}
+}
+
+.myaccordionItem.is-collapsed {
+	max-height: 0;
+}
+
+.no-js .myaccordionItem.is-collapsed {
+	max-height: auto;
+}
+
+.animateIn {
+	animation: myaccordionIn 0.45s normal ease-in-out both 1;
+}
+
+.animateOut {
+	animation: myaccordionOut 0.45s alternate ease-in-out both 1;
+}
+
+@keyframes myaccordionIn {
+	0% {
+		opacity: 0;
+		transform: scale(0.9) rotateX(-60deg);
+		transform-origin: 50% 0;
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes myaccordionOut {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	100% {
+		opacity: 0;
+		transform: scale(0.9) rotateX(-60deg);
+	}
+}
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/

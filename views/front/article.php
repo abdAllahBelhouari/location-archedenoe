@@ -1,7 +1,4 @@
 <?php
-	
-
-
 	$Title = "Détail de l'article ";
 	$Description = "Explorez notre catalogue d'articles en location chez Arche de Noé à Dugny. Découvrez une sélection variée de matériel de loisirs, sportif, éducatif et d'animation disponibles à la location. Obtenez des informations détaillées sur chaque article, y compris les caractéristiques, les tarifs et les disponibilités. Faites votre choix parmi notre gamme diversifiée pour enrichir vos événements et activités.";
 
@@ -76,6 +73,14 @@
 
 		</div>
 	</section>
+
+	<div class="container">
+		<div class="row gy-4">
+			<div data-aos="fade-up" data-aos-delay="200">
+				<?php require_once('faq.php'); ?>
+			</div>
+		</div>
+	</div>
 </main>
 <?php
 	require_once('../views/scripts.php');

@@ -1,5 +1,4 @@
 <?php
-
 	$Title = "La location en toute simplicité";
 	$Description= "Bienvenue chez Arche de Noé à Dugny, votre partenaire de confiance pour la location de matériel de loisirs, sportif, éducatif et d'animation. Découvrez notre large gamme de produits de qualité pour rendre vos événements inoubliables. Contactez-nous dès maintenant pour une expérience exceptionnelle.";
 
@@ -159,12 +158,7 @@
 		</div>
 	</section>
 </main>
-
-
-
-
-
 <?php
-require_once('../views/scripts.php');
-require_once('footer.php');
+	require_once('../views/scripts.php');
+	require_once('footer.php');
 ?>

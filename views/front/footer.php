@@ -11,6 +11,7 @@
 				<li><a href='?route=contact'>Contact</a></li>
 			</div>
 			<div class="col-md-3 footer-link">
+				<li><a href='?route=blog'>Blog</a></li>
 				<li><a href='?route=login'>Se connecter</a></li>
 				<li><a href='?route=register'>S'inscrire</a></li>
 			</div>

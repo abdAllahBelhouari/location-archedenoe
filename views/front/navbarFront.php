@@ -13,6 +13,7 @@
 				<li><a class="nav-link scrollto" href="?route">Accueil</a></li>
 				<li><a class="nav-link scrollto" href="?route=conditions">Conditions</a></li>
 				<li><a class="nav-link scrollto" href="?route=reservation">Réservation</a></li>
+				<li><a class="nav-link scrollto" href="?route=blog">Blog</a></li>
 				<li><a class="nav-link scrollto" href="?route=contact">Contact</a></li>
 
 				<li class="dropdown"><a href="#"><i class="bi bi-person-fill bx-sm"></i><i

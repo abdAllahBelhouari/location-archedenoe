@@ -27,7 +27,7 @@
 				$count = $delay = 0; 
 				foreach ($Conditions as $condition):
 					$count++;
-					$delay+100; 
+					$delay+=100; 
 			?>
 			<div data-aos="fade-up" data-aos-delay="<?=$delay;?>">
 				<h3>
@@ -39,10 +39,17 @@
 				</p>
 			</div>
 			<?php endforeach;?>
+			<li>
+				Ces conditions générales peuvent être adaptées en fonction des besoins spécifiques de
+				notre association et des types de matériel que nous proposons à la location.
+			</li>
+			<div data-aos="fade-up" data-aos-delay="<?=$delay;?>">
+				<?php require_once('faq.php'); ?>
+			</div>
 		</div>
 	</section>
 </main>
 <?php
-    require_once('../views/scripts.php');
-    require_once('footer.php');
+	require_once('../views/scripts.php');
+	require_once('footer.php');
 ?>

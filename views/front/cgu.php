@@ -1,7 +1,4 @@
 <?php
-
-
-	
 	$Title = "C.G.U.";
 	$Description = "Consultez les Conditions Générales d'Utilisation (CGU) d'Arche de Noé à Dugny pour comprendre les conditions régissant l'utilisation de notre site web et de nos services de location de matériel de loisirs, sportif, éducatif et d'animation. Prenez connaissance de nos politiques et engagez-vous à respecter nos règles lors de votre utilisation de notre plateforme.";
 

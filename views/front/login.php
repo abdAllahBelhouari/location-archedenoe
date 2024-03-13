@@ -19,7 +19,6 @@
 			}
 		}
 	}
-
 	
 	$Title = "Se connecter";
 	$Description = "Connectez-vous à votre compte Arche de Noé à Dugny pour accéder à nos services de location de matériel de loisirs, sportif, éducatif et d'animation. Gérez facilement vos réservations, locations et profitez d'une expérience personnalisée.";
