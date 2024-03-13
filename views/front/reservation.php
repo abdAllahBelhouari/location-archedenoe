@@ -2,6 +2,9 @@
 
 
 
+	$Title = "Réservation";
+	$Description = "Réservez dès maintenant votre matériel de loisirs, sportif, éducatif et d'animation chez Arche de Noé à Dugny. Profitez d'une expérience de réservation simple et rapide pour garantir le succès de votre événement. Réservez en ligne ou contactez-nous pour obtenir de l'aide et des conseils personnalisés.";
+
 	require_once('../views/header.php');
 	require_once('navbarFront.php');
 ?>

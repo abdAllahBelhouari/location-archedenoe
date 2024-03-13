@@ -492,18 +492,18 @@ section {
 /* Sections Header
 --------------------------------*/
 .section-header .section-title {
-  font-size: 32px;
-  color: #111;
-  text-transform: uppercase;
-  text-align: center;
-  font-weight: 700;
-  margin-bottom: 5px;
+	font-size: 32px;
+	color: #111;
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: 700;
+	margin-bottom: 5px;
 }
 
 .section-header .section-description {
-  text-align: center;
-  padding-bottom: 40px;
-  color: #999;
+	text-align: center;
+	padding-bottom: 40px;
+	color: #999;
 }
 
 /*--------------------------------------------------------------

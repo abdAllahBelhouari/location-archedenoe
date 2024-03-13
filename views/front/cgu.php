@@ -2,11 +2,13 @@
 
 
 	
+	$Title = "C.G.U.";
+	$Description = "Consultez les Conditions Générales d'Utilisation (CGU) d'Arche de Noé à Dugny pour comprendre les conditions régissant l'utilisation de notre site web et de nos services de location de matériel de loisirs, sportif, éducatif et d'animation. Prenez connaissance de nos politiques et engagez-vous à respecter nos règles lors de votre utilisation de notre plateforme.";
+
 	require_once('../views/header.php');
 	require_once('navbarFront.php');
 ?>
 <main id="main">
-	<!-- ======= Breadcrumbs Section ======= -->
 	<section class="breadcrumbs">
 		<div class="container">
 			<div class="d-flex justify-content-between align-items-center">
@@ -17,7 +19,7 @@
 				</ol>
 			</div>
 		</div>
-	</section><!-- End Breadcrumbs Section -->
+	</section>
 
 	<section id="conditions" class="container pt-4 pb-5">
 		<div class="row justify-content-center py-5">

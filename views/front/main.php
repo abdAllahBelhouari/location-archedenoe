@@ -1,16 +1,18 @@
 <?php
-require_once('../views/header.php');
-require_once('navbarFront.php');
 
+	$Title = "La location en toute simplicité";
+	$Description= "Bienvenue chez Arche de Noé à Dugny, votre partenaire de confiance pour la location de matériel de loisirs, sportif, éducatif et d'animation. Découvrez notre large gamme de produits de qualité pour rendre vos événements inoubliables. Contactez-nous dès maintenant pour une expérience exceptionnelle.";
 
+	require_once('../views/header.php');
+	require_once('navbarFront.php');
 ?>
 <main id="main">
-	<!-- ======= Portfolio Section ======= -->
 	<section id="portfolio" class="portfolio">
 		<div class="container" data-aos="fade-up">
 			<div class="section-header">
 				<h3 class="section-title">&nbsp;</h3>
-				<p class="section-description">La location en toute simplicité</p>
+				<h1 class="text-center section-description">Location de Matériel de Loisirs, Sportif,
+					Éducatif et d'Animation</h1>
 			</div>
 
 			<div class="row" data-aos="fade-up" data-aos-delay="100">
@@ -34,8 +36,8 @@ require_once('navbarFront.php');
 							data-gallery="portfolioGallery"
 							class="portfolio-lightbox preview-link"
 							title="Piscine à balles"><i class="bi bi-eye-fill"></i></a>
-						<a href="?route=article&article=1" class="details-link" title="Détails"><i
-								class="bi bi-basket2"></i></a>
+						<a href="?route=article&article=1" class="details-link"
+							title="Détails"><i class="bi bi-basket2"></i></a>
 					</div>
 				</div>
 
@@ -48,8 +50,8 @@ require_once('navbarFront.php');
 							data-gallery="portfolioGallery"
 							class="portfolio-lightbox preview-link" title="Vélo Adulte"><i
 								class="bi bi-eye-fill"></i></a>
-						<a href="?route=article&article=2" class="details-link" title="Détails"><i
-								class="bi bi-basket2"></i></a>
+						<a href="?route=article&article=2" class="details-link"
+							title="Détails"><i class="bi bi-basket2"></i></a>
 					</div>
 				</div>
 
@@ -63,8 +65,8 @@ require_once('navbarFront.php');
 							class="portfolio-lightbox preview-link"
 							title="Structure gonflable - Le Médiéval"><i
 								class="bi bi-eye-fill"></i></a>
-						<a href="?route=article&article=3" class="details-link" title="Détails"><i
-								class="bi bi-basket2"></i></a>
+						<a href="?route=article&article=3" class="details-link"
+							title="Détails"><i class="bi bi-basket2"></i></a>
 					</div>
 				</div>
 
@@ -78,8 +80,8 @@ require_once('navbarFront.php');
 							class="portfolio-lightbox preview-link"
 							title="Machine de barbe à papa"><i
 								class="bi bi-eye-fill"></i></a>
-						<a href="?route=article&article=4" class="details-link" title="Détails"><i
-								class="bi bi-basket2"></i></a>
+						<a href="?route=article&article=4" class="details-link"
+							title="Détails"><i class="bi bi-basket2"></i></a>
 					</div>
 				</div>
 
@@ -92,8 +94,8 @@ require_once('navbarFront.php');
 							data-gallery="portfolioGallery"
 							class="portfolio-lightbox preview-link" title="Baby Vélo"><i
 								class="bi bi-eye-fill"></i></a>
-						<a href="?route=article&article=5" class="details-link" title="Détails"><i
-								class="bi bi-basket2"></i></a>
+						<a href="?route=article&article=5" class="details-link"
+							title="Détails"><i class="bi bi-basket2"></i></a>
 					</div>
 				</div>
 
@@ -107,8 +109,8 @@ require_once('navbarFront.php');
 							class="portfolio-lightbox preview-link"
 							title="Structure gonflable - Tobogan"><i
 								class="bi bi-eye-fill"></i></a>
-						<a href="?route=article&article=6" class="details-link" title="Détails"><i
-								class="bi bi-basket2"></i></a>
+						<a href="?route=article&article=6" class="details-link"
+							title="Détails"><i class="bi bi-basket2"></i></a>
 					</div>
 				</div>
 
@@ -121,8 +123,8 @@ require_once('navbarFront.php');
 							data-gallery="portfolioGallery"
 							class="portfolio-lightbox preview-link"
 							title="Machine à crèpes"><i class="bi bi-eye-fill"></i></a>
-						<a href="?route=article&article=7" class="details-link" title="Détails"><i
-								class="bi bi-basket2"></i></a>
+						<a href="?route=article&article=7" class="details-link"
+							title="Détails"><i class="bi bi-basket2"></i></a>
 					</div>
 				</div>
 
@@ -135,8 +137,8 @@ require_once('navbarFront.php');
 							data-gallery="portfolioGallery"
 							class="portfolio-lightbox preview-link"
 							title="Machine à gauffres"><i class="bi bi-eye-fill"></i></a>
-						<a href="?route=article&article=8" class="details-link" title="Détails"><i
-								class="bi bi-basket2"></i></a>
+						<a href="?route=article&article=8" class="details-link"
+							title="Détails"><i class="bi bi-basket2"></i></a>
 					</div>
 				</div>
 
@@ -149,13 +151,13 @@ require_once('navbarFront.php');
 							data-gallery="portfolioGallery"
 							class="portfolio-lightbox preview-link" title="Trotinette"><i
 								class="bi bi-eye-fill"></i></a>
-						<a href="?route=article&article=1" class="details-link" title="Détails"><i
-								class="bi bi-basket2"></i></a>
+						<a href="?route=article&article=1" class="details-link"
+							title="Détails"><i class="bi bi-basket2"></i></a>
 					</div>
 				</div>
 			</div>
 		</div>
-	</section><!-- End Portfolio Section -->
+	</section>
 </main>
 
 

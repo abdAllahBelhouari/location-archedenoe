@@ -61,6 +61,8 @@
 
 	$Categories = $categorie->getCategories();
 
+	$Title = $Description = "Gestion des catégories";
+	
 	require_once('../views/header.php');
 	require_once('navbarBack1.php');
 ?>
@@ -82,21 +84,27 @@
 			<div class="row py-4">
 				<div class="col-sm-12 col-md-6 col-lg-5 col-xl-3">
 					<table class="table table-borered table-stripped table-condensed">
-						<thead><tr>
+						<thead>
+							<tr>
 								<td>
 									<form action="#" method="POST">
 										<div class="form-group">
-											<label for="libelleCategorie" class="form-label">Libellé</label>
-											<input type="text" 
-												name="libelleCategorie" 
-												class="form-control" 
-												id="libelleCategorie" 
+											<label for="libelleCategorie"
+												class="form-label">Libellé</label>
+											<input type="text"
+												name="libelleCategorie"
+												class="form-control"
+												id="libelleCategorie"
 												value="<?=$_POST['libelleCategorie']??"";?>">
-											<div class="form-error"><?= $error['libelleCategorie'] ?? ''; ?></div>
+											<div class="form-error">
+												<?= $error['libelleCategorie'] ?? ''; ?>
+											</div>
 										</div>
 										<div class="text-end">
-											<a href="?route=categories" class="mybtn-light">Annuler</a>
-											<button type="submit" name="subFormCategorie"><?= isset($_GET["categorie"]) && $_GET["categorie"]?'Modifier':'Ajouter'; ?></button>
+											<a href="?route=categories"
+												class="mybtn-light">Annuler</a>
+											<button type="submit"
+												name="subFormCategorie"><?= isset($_GET["categorie"]) && $_GET["categorie"]?'Modifier':'Ajouter'; ?></button>
 										</div>
 									</form>
 								</td>
@@ -107,60 +115,62 @@
 								<th class="w-100">Catégories</th>
 							</tr>
 							<?php if ($Categories): ?>
-								<?php foreach ($Categories as $categorie): ?>
-									<tr>
-										<td>
-											<div class="dropdown float-end">
-												<i class="bi bi-three-dots-vertical action"
-													id="dropdownMenuBtn"
-													data-bs-toggle="dropdown"
-													aria-expanded="false"></i>
-												<ul class="dropdown-menu"
-													aria-labelledby="dropdownMenuBtn">
-													<li>
-														<a class="dropdown-item"
-														href="?route=categories&categorie=<?= $categorie['idCategorie']?>">
-														<i
+							<?php foreach ($Categories as $categorie): ?>
+							<tr>
+								<td>
+									<div class="dropdown float-end">
+										<i class="bi bi-three-dots-vertical action"
+											id="dropdownMenuBtn"
+											data-bs-toggle="dropdown"
+											aria-expanded="false"></i>
+										<ul class="dropdown-menu"
+											aria-labelledby="dropdownMenuBtn">
+											<li>
+												<a class="dropdown-item"
+													href="?route=categories&categorie=<?= $categorie['idCategorie']?>">
+													<i
 														class="bi bi-pencil-fill sub-bi"></i>
-														Modifier</a>
-													</li>
-													<li>
-														<a class="dropdown-item"
-														href="?route=categories&show=<?= $categorie['idCategorie']?>">
-															<i
-																class="bi bi-eye-<?= is_null($categorie['webCategorie']) ? 'slash-' : '' ;?>fill sub-bi"></i>
-																Rendre <?= is_null($categorie['webCategorie']) ? 'visible' : 'invisible' ;?></a>
-													</li>
-													<li>
-														<a class="dropdown-item"
-															href="#" onclick="sweetAlert('Vous confirmez ?',
+													Modifier</a>
+											</li>
+											<li>
+												<a class="dropdown-item"
+													href="?route=categories&show=<?= $categorie['idCategorie']?>">
+													<i
+														class="bi bi-eye-<?= is_null($categorie['webCategorie']) ? 'slash-' : '' ;?>fill sub-bi"></i>
+													Rendre
+													<?= is_null($categorie['webCategorie']) ? 'visible' : 'invisible' ;?></a>
+											</li>
+											<li>
+												<a class="dropdown-item"
+													href="#"
+													onclick="sweetAlert('Vous confirmez ?',
 																							'La suppression de cette catégorie sera définitive !',
 																							'?route=categories&delete=<?= $categorie['idCategorie']; ?>&<?= csrf(); ?>',
 																							'warning')">
-															<i
-																class="bi bi-trash-fill sub-bi"></i>
-															Supprimer</a>
-													</li>
-												</ul>
-											</div>
-											<i
-												class="bi bi-eye-<?= is_null($categorie['webCategorie']) ? 'slash-fill sub-bi' : 'fill col-iadn' ;?> bi-lg"></i>
+													<i
+														class="bi bi-trash-fill sub-bi"></i>
+													Supprimer</a>
+											</li>
+										</ul>
+									</div>
+									<i
+										class="bi bi-eye-<?= is_null($categorie['webCategorie']) ? 'slash-fill sub-bi' : 'fill col-iadn' ;?> bi-lg"></i>
 
-											<?= $categorie['libelleCategorie']?>
-										</td>
-									</tr>
-								<?php endforeach; ?>
+									<?= $categorie['libelleCategorie']?>
+								</td>
+							</tr>
+							<?php endforeach; ?>
 							<?php else: ?>
-								<tr>
-									<td class="text-center py-5">
-										Aucune catégorie enregistrée
-									</td>
-								</tr>
+							<tr>
+								<td class="text-center py-5">
+									Aucune catégorie enregistrée
+								</td>
+							</tr>
 							<?php endif; ?>
 						</tbody>
-					</table>	
+					</table>
 				</div>
-				
+
 			</div>
 		</div>
 	</section>

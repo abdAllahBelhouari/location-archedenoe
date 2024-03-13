@@ -2,12 +2,13 @@
 	$condition = new Condition();
 	$Conditions = $condition->getConditionsWeb();
 	
+	$Title = "Conditions de location";
+	$Description = "Découvrez nos conditions de location complètes et transparentes. Que vous recherchiez des informations sur la durée, les tarifs ou les modalités, notre page détaille tout ce dont vous avez besoin de savoir pour une expérience de location fluide. Louez en toute confiance avec location-archedenoe.fr.";
 
-    require_once('../views/header.php');
-    require_once('navbarFront.php');
+	require_once('../views/header.php');
+	require_once('navbarFront.php');
 ?>
 <main id="main">
-	<!-- ======= Breadcrumbs Section ======= -->
 	<section class="breadcrumbs">
 		<div class="container">
 			<div class="d-flex justify-content-between align-items-center">
@@ -18,7 +19,7 @@
 				</ol>
 			</div>
 		</div>
-	</section><!-- End Breadcrumbs Section -->
+	</section>
 
 	<section id="conditions" class="container pt-4 pb-5">
 		<div class="row justify-content-center py-5">
@@ -28,20 +29,16 @@
 					$count++;
 					$delay+100; 
 			?>
-				<div data-aos="fade-up" data-aos-delay="<?=$delay;?>">
-					<h3>
-						Article  <?=$count;?>
-						<span>: <?=$condition["titreTerme"];?></span>
-					</h3>
-					<p>
-						<?= nl2br($condition["contenuTerme"]);?>
-					</p>
-				</div>
+			<div data-aos="fade-up" data-aos-delay="<?=$delay;?>">
+				<h3>
+					Article <?=$count;?>
+					<span>: <?=$condition["titreTerme"];?></span>
+				</h3>
+				<p>
+					<?= nl2br($condition["contenuTerme"]);?>
+				</p>
+			</div>
 			<?php endforeach;?>
-
-			
-
-			
 		</div>
 	</section>
 </main>

@@ -87,8 +87,10 @@
 
 	$Conditions = $condition->getConditions();
 	
+	$Title = $Description = "Conditions de location";
+	
 	require_once('../views/header.php');
-	require_once('navbarBack1.php');
+	require_once('navbarBack1.php')
 ?>
 <main id="main">
 	<!-- ======= Breadcrumbs Section ======= -->
@@ -111,24 +113,18 @@
 					<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
 						<div class="form-group">
 							<label for="titreTerme" class="form-label">Titre</label>
-							<input type="text" 
-								name="titreTerme" 
-								class="form-control" 
-								id="titreTerme" 
-								value="<?=$_POST['titreTerme']??"";?>">
+							<input type="text" name="titreTerme" class="form-control"
+								id="titreTerme" value="<?=$_POST['titreTerme']??"";?>">
 							<div class="form-error"><?= $error['titreTerme'] ?? ''; ?></div>
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-6 col-lg-6 col-xl-3">
 						<div class="form-group">
 							<label for="indexTerme" class="form-label">Index</label>
-							<input type="text" 
-								name="indexTerme" 
-								class="form-control text-center"
-								maxlength="2"
-								onkeypress="return VerifCasse(event,'number')" 
-								id="indexTerme" 
-								value="<?=$_POST['indexTerme']??"";?>">
+							<input type="text" name="indexTerme"
+								class="form-control text-center" maxlength="2"
+								onkeypress="return VerifCasse(event,'number')"
+								id="indexTerme" value="<?=$_POST['indexTerme']??"";?>">
 							<div class="form-error"><?= $error['indexTerme'] ?? ''; ?></div>
 						</div>
 					</div>
@@ -136,32 +132,29 @@
 						<div class="form-group">
 							<label for="webTerme" class="form-label">show sur le Web</label>
 							<div class="text-center">
-								<input type="checkbox" 
-									name="webTerme" 
-									class="form-checkbox"
-									id="webTerme"
-									<?= isset($_POST["webTerme"]) && (int)$_POST["webTerme"]==1 ?'checked':NULL;?> 
+								<input type="checkbox" name="webTerme"
+									class="form-checkbox" id="webTerme"
+									<?= isset($_POST["webTerme"]) && (int)$_POST["webTerme"]==1 ?'checked':NULL;?>
 									value="1">
 							</div>
 							<div class="form-error"><?= $error['webTerme'] ?? ''; ?></div>
 						</div>
 					</div>
-					
+
 				</div>
 
 				<div class="form-group">
 					<label for="contenuTerme" class="form-label">Contenu</label>
-					<textarea name="contenuTerme" 
-						id="contenuTerme" 
-						rows="15"
+					<textarea name="contenuTerme" id="contenuTerme" rows="15"
 						class="form-control"><?=$_POST['contenuTerme']??"";?></textarea>
 					<div class="form-error"><?= $error['contenuTerme'] ?? ''; ?></div>
 				</div>
 				<div class="text-end">
-						<a href="?route=conditions" class="mybtn-light">Annuler</a>
-						<button type="submit" name="subFormCondition"><?= isset($_GET["condition"]) && $_GET["condition"]?'Modifier':'Ajouter'; ?></button>
+					<a href="?route=conditions" class="mybtn-light">Annuler</a>
+					<button type="submit"
+						name="subFormCondition"><?= isset($_GET["condition"]) && $_GET["condition"]?'Modifier':'Ajouter'; ?></button>
 				</div>
-				
+
 			</form>
 
 			<div class="col-sm-12 col-md-6 col-lg-5 col-xl-5">
@@ -172,15 +165,15 @@
 					</h5>
 					<form action="#" method="POST">
 						<table class="table table-borered table-stripped table-condensed">
-						<thead>
-							<tr>
-								<th class="w-100">Titre</th>
-								<th>Index</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php if($Conditions):?>
-								<?php foreach ($Conditions as $condition):?> 
+							<thead>
+								<tr>
+									<th class="w-100">Titre</th>
+									<th>Index</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php if($Conditions):?>
+								<?php foreach ($Conditions as $condition):?>
 								<tr>
 									<td>
 										<div class="dropdown float-end">
@@ -192,21 +185,23 @@
 												aria-labelledby="dropdownMenuBtn">
 												<li>
 													<a class="dropdown-item"
-													href="?route=conditions&condition=<?= $condition['idTerme']?>">
-													<i
-													class="bi bi-pencil-fill sub-bi"></i>
-													Modifier</a>
+														href="?route=conditions&condition=<?= $condition['idTerme']?>">
+														<i
+															class="bi bi-pencil-fill sub-bi"></i>
+														Modifier</a>
 												</li>
 												<li>
 													<a class="dropdown-item"
-													href="?route=conditions&show=<?= $condition['idTerme']?>">
+														href="?route=conditions&show=<?= $condition['idTerme']?>">
 														<i
 															class="bi bi-eye-<?= is_null($condition['webTerme']) ? 'slash-' : '' ;?>fill sub-bi"></i>
-															Rendre <?= is_null($condition['webTerme']) ? 'visible' : 'invisible' ;?></a>
+														Rendre
+														<?= is_null($condition['webTerme']) ? 'visible' : 'invisible' ;?></a>
 												</li>
 												<li>
 													<a class="dropdown-item"
-														href="#" onclick="sweetAlert('Vous confirmez ?',
+														href="#"
+														onclick="sweetAlert('Vous confirmez ?',
 																						'La suppression de cette condition sera définitive !',
 																						'?route=conditions&delete=<?= $condition['idTerme']; ?>&<?= csrf(); ?>',
 																						'warning')">
@@ -218,37 +213,37 @@
 										</div>
 										<i
 											class="bi bi-eye-<?= is_null($condition['webTerme']) ? 'slash-fill sub-bi' : 'fill col-iadn' ;?> bi-lg"></i>
-												
+
 										<?= $condition['titreTerme']?>
 									</td>
 									<td class="text-center">
-									<input type="text" 
-										name="Indexations[<?= $condition['idTerme']?>]" 
-										class="form-control text-center"
-										maxlength="2"
-										onkeypress="return VerifCasse(event,'number')" 
-										id="indexTerme_<?= $condition['idTerme']?>" 
-										value="<?= $condition['indexTerme'];?>">
+										<input type="text"
+											name="Indexations[<?= $condition['idTerme']?>]"
+											class="form-control text-center"
+											maxlength="2"
+											onkeypress="return VerifCasse(event,'number')"
+											id="indexTerme_<?= $condition['idTerme']?>"
+											value="<?= $condition['indexTerme'];?>">
 									</td>
 								</tr>
-								
+
 								<?php endforeach; ?>
-							<?php else: ?>
+								<?php else: ?>
 								<tr>
 									<td colspan="2" class="text-center py-4">
 										Aucune condition enregistrée
 									</td>
 								</tr>
-							<?php endif; ?>
+								<?php endif; ?>
 
-						</tbody>
+							</tbody>
 						</table>
 						<div class="text-end">
-						<button type="submit" name="subFormReindexer">Réindexer</button>
+							<button type="submit" name="subFormReindexer">Réindexer</button>
 						</div>
 					</form>
 				</div>
-				
+
 
 			</div>
 		</div>

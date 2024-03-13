@@ -2,6 +2,8 @@
 
 
 	
+	$Title = $Description = "Accueil";
+
 	require_once('../views/header.php');
 	require_once('navbarBack1.php');
 	

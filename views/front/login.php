@@ -21,6 +21,9 @@
 	}
 
 	
+	$Title = "Se connecter";
+	$Description = "Connectez-vous à votre compte Arche de Noé à Dugny pour accéder à nos services de location de matériel de loisirs, sportif, éducatif et d'animation. Gérez facilement vos réservations, locations et profitez d'une expérience personnalisée.";
+
 	require_once('../views/header.php');
 	require_once('navbarFront.php');
 ?>
@@ -46,22 +49,28 @@
 				<div class="col-md-3">
 					<div class="form-group" data-aos="fade-right">
 						<label class="form-label">Email</label>
-						<input type="email" name="emailMembre" class="form-control" id="emailMembre" placeholder="Votre email" value="<?=$_POST['emailMembre']??"";?>">
+						<input type="email" name="emailMembre" class="form-control"
+							id="emailMembre" placeholder="Votre email"
+							value="<?=$_POST['emailMembre']??"";?>">
 						<div class="form-error"><?= $error['emailMembre'] ?? ''; ?></div>
 					</div>
 					<div class="form-group" data-aos="fade-left">
 						<label class="form-label">Mot de passe</label>
 						<div class="input-group">
-							<input type="password" class="form-control" name="passwordMembre"
-								id="passwordMembre" placeholder="Mot de passe">
-							<span class="input-group-text" onClick="showMdp('passwordMembre')" role="button"><i class="bi bi-eye"></i></span>
+							<input type="password" class="form-control"
+								name="passwordMembre" id="passwordMembre"
+								placeholder="Mot de passe">
+							<span class="input-group-text"
+								onClick="showMdp('passwordMembre')" role="button"><i
+									class="bi bi-eye"></i></span>
 						</div>
 						<div class="form-error"><?= $error['passwordMembre'] ?? ''; ?></div>
 					</div>
 					<div class="my-3 text-center" data-aos="fade-up" data-aos-delay="200">
 						<button type="submit" name="subFormLogin">Valider</button>
 						<div class="mt-5 text-center">
-							<button type="submit" name="subFormForget" id="btnForget">Mot de passe oublié</button><br>
+							<button type="submit" name="subFormForget" id="btnForget">Mot de
+								passe oublié</button><br>
 							<a href='?route=register'>S'inscrire</a>
 						</div>
 					</div>

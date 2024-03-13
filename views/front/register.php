@@ -2,6 +2,9 @@
 
 
 	
+	$Title = "S'inscrire";
+	$Description = "Inscrivez-vous chez Arche de Noé à Dugny pour bénéficier de nos services de location de matériel de loisirs, sportif, éducatif et d'animation. Créez un compte dès maintenant pour accéder à nos offres exclusives et simplifier vos réservations et locations.";
+
 	require_once('../views/header.php');
 	require_once('navbarFront.php');
 ?>
@@ -65,7 +68,9 @@
 						<div class="input-group">
 							<input type="password" class="form-control" name="motdepasse"
 								id="motdepasse" placeholder="Mot de passe">
-							<span class="input-group-text" onclick="showMdp('motdepasse')"><i class="bi bi-eye"></i></span>
+							<span class="input-group-text"
+								onclick="showMdp('motdepasse')"><i
+									class="bi bi-eye"></i></span>
 						</div>
 					</div>
 					<div class="my-3 text-center" data-aos="fade-up" data-aos-delay="200">

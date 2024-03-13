@@ -2,6 +2,9 @@
 
 
 	
+	$Title = "Mentions Légales";
+	$Description = "Retrouvez les mentions légales d'Arche de Noé à Dugny pour connaître les informations juridiques relatives à notre entreprise et à notre site web. Consultez nos mentions légales pour comprendre nos obligations légales et protéger vos droits en tant qu'utilisateur de nos services de location de matériel de loisirs, sportif, éducatif et d'animation.";
+
 	require_once('../views/header.php');
 	require_once('navbarFront.php');
 ?>

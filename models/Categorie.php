@@ -1,7 +1,7 @@
 <?php
     class Categorie {
 
-        public function checkData($data){
+        public function checkData($data) {
             global $db;
             $error=[];
             if(empty($data["libelleCategorie"])){
