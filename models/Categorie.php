@@ -80,13 +80,27 @@
             }  
         }
 
-        public function deleteCategorie($id) {
-
+        public function deleteCategorie($id,$libelle) {
+            global $db;
+            $idCategorie=$db->quote($id);
+            $sql=$db->prepare("DELETE FROM categorie WHERE idCategorie = $idCategorie");
+            if($sql->execute()){
+                return [
+                    "result" => true,
+                    "response" => "La catégorie ".$libelle." a été supprimée avec succès."
+                ];
+            }else{
+                return [
+                    "result" => false,
+                    "response" => "La catégorie ".$libelle." n'a pas été supprimée."
+                ];
+            }
         }
 
-        public function getCategories() {
+        public function getCategories($web=false) {
             global $db;
-            return $db->query("SELECT * FROM categorie ORDER BY libelleCategorie")->fetchAll();
+            $WEB = $web ? "WHERE webCategorie = '1'" : "" ;
+            return $db->query("SELECT * FROM categorie $WEB ORDER BY libelleCategorie")->fetchAll();
         }
 
         public function showWeb($data){

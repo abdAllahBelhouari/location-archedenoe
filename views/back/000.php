@@ -1,7 +1,7 @@
 <?php
 	Login::controlAccess([1]);
 
-	
+	$Title = $Description = "Gestion des ";
 	require_once('../views/header.php');
 	require_once('navbarBack1.php');
 ?>
@@ -20,7 +20,7 @@
 	<?=flash();?>
 	<section>
 		<div class="container-fluid">
-			<div class="row justify-content-center py-4">
+			<div class="row py-4">
 				<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
 					colonne de gauche
 				

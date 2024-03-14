@@ -116,6 +116,10 @@ button:hover, .mybtn:hover, .mybtn-light {
   color: #777;
   margin-right: 7px;
 }
+.imgWarning {
+  display: block;
+  margin: 30px auto;
+}
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/

@@ -57,6 +57,23 @@
 			header("location:?route=categories");
 			die();
 		}
+	}elseif(isset($_GET["delete"]) && $_GET["delete"]){
+		$readCategorie = $categorie->readCategorie($_GET["delete"]);		
+		if($readCategorie["result"]){
+			checkCsrf();
+			$deleteCategorie=$categorie->deleteCategorie($_GET["delete"],$readCategorie["response"]["libelleCategorie"]);
+			if($deleteCategorie["result"]){ 
+				setFlash("Félicitations.",$deleteCategorie["response"]);
+			} else {
+				setFlash("Désolé !",$deleteCategorie["response"],"danger");
+			}
+			header("location:?route=categories");
+			die();
+		} else {
+			setFlash("Désolé !",$readCategorie["response"],"danger");
+			header("location:?route=categories");
+			die();
+		}
 	}
 
 	$Categories = $categorie->getCategories();

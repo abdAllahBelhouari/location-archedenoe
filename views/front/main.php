@@ -1,4 +1,11 @@
 <?php
+	$categorie = new Categorie();
+	$Categories = $categorie->getCategories(true);
+	
+
+
+
+	
 	$Title = "La location en toute simplicité";
 	$Description= "Bienvenue chez Arche de Noé à Dugny, votre partenaire de confiance pour la location de matériel de loisirs, sportif, éducatif et d'animation. Découvrez notre large gamme de produits de qualité pour rendre vos événements inoubliables. Contactez-nous dès maintenant pour une expérience exceptionnelle.";
 
@@ -17,16 +24,18 @@
 			<div class="row" data-aos="fade-up" data-aos-delay="100">
 				<div class="col-lg-12 d-flex justify-content-center">
 					<ul id="portfolio-flters">
-						<li data-filter="*" class="filter-active">Tous</li>
-						<li data-filter=".filter-loisir">Loisir</li>
-						<li data-filter=".filter-cuisine">Cuisine</li>
-						<li data-filter=".filter-sport">Sports</li>
+						<?php if(count($Categories)>1) : ?>
+							<li data-filter="*" class="filter-active">Tous</li>
+						<?php endif ?>	
+						<?php foreach ($Categories as $categorie): ?> 
+							<li data-filter=".filter-<?= $categorie["idCategorie"] ;?>"><?= $categorie["libelleCategorie"] ;?></li>
+						<?php endforeach; ?>	
 					</ul>
 				</div>
 			</div>
 
 			<div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-				<div class="col-lg-4 col-md-6 portfolio-item filter-loisir">
+				<div class="col-lg-4 col-md-6 portfolio-item filter-<?= $categorie["idCategorie"] ;?>">
 					<img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
 					<div class="portfolio-info">
 						<h4>Piscine à balles</h4>
@@ -54,7 +63,7 @@
 					</div>
 				</div>
 
-				<div class="col-lg-4 col-md-6 portfolio-item filter-loisir">
+				<div class="col-lg-4 col-md-6 portfolio-item filter-<?= $categorie["idCategorie"] ;?>">
 					<img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
 					<div class="portfolio-info">
 						<h4>Structure gonflable - Le Médiéval</h4>
@@ -98,7 +107,7 @@
 					</div>
 				</div>
 
-				<div class="col-lg-4 col-md-6 portfolio-item filter-loisir">
+				<div class="col-lg-4 col-md-6 portfolio-item filter-<?= $categorie["idCategorie"] ;?>">
 					<img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
 					<div class="portfolio-info">
 						<h4>Structure gonflable - Tobogan</h4>
