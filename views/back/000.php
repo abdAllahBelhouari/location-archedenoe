@@ -18,7 +18,7 @@
 		</div>
 	</section><!-- End Breadcrumbs Section -->
 	<?=flash();?>
-	<section>
+	<section id="page-wrapper">
 		<div class="container-fluid">
 			<div class="row py-4">
 				<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">

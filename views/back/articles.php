@@ -25,7 +25,7 @@
 		</div>
 	</section><!-- End Breadcrumbs Section -->
 	<?=flash();?>
-	<section>
+	<section id="page-wrapper">
 		<div class="container-fluid">
 			<div class="row py-4">
 				<?php if($Categories): ?>
@@ -40,20 +40,20 @@
 							</select>
 							<div class="form-error"><?= $error['idCategorie'] ?? ''; ?></div>
 						</div>
-								
+
 						<div class="form-group">
 							<label for="libelleArticle" class="form-label">Libellé</label>
 							<input type="text" name="libelleArticle" class="form-control"
 								id="libelleArticle" value="<?=$_POST['libelleArticle']??"";?>">
 							<div class="form-error"><?= $error['libelleArticle'] ?? ''; ?></div>
 						</div>
-								
+
 						<div class="form-group">
 							<label for="descriptionArticle" class="form-label">Description</label>
-							<textarea name="" id="" rows="5" class="form-control"><?=$_POST['descriptionArticle']??"";?></textarea>
+							<textarea name="descriptionArticle" id="descriptionArticle" rows="5" class="form-control"><?=$_POST['descriptionArticle']??"";?></textarea>
 							<div class="form-error"><?= $error['descriptionArticle'] ?? ''; ?></div>
 						</div>
-								
+
 						<div class="row">
 							<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
 								<div class="form-group">
@@ -77,7 +77,7 @@
 								</div>
 							</div>
 						</div>
-								
+
 						<div class="row">
 							<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
 								<div class="form-group">
@@ -112,7 +112,7 @@
 								</div>
 							</div>
 						</div>
-								
+
 						<div class="form-group">
 							<label for="photos" class="form-label">Photos</label>
 							<input type="file" name="photos"
@@ -122,8 +122,8 @@
 							<div class="form-error"><?= $error['photos'] ?? ''; ?></div>
 						</div>
 						<div class="text-end">
-							<a href="?route=articles" class="mybtn-light">Annuler</a>
-							<button type="submit"
+							<a href="?route=articles" onclick="Processing()" class="mybtn-light">Annuler</a>
+							<button type="submit" onclick="Processing()" 
 								name="subFormArticle"><?= isset($_GET["article"]) && $_GET["article"]?'Modifier':'Ajouter'; ?></button>
 						</div>
 					</form>

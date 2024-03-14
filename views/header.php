@@ -25,3 +25,13 @@
 </head>
 
 <body>
+	<div id="Wait">
+		<section>
+			<div>INSTITUT L'ARCHE DE NOÉ</div>
+			<span>Traitement en cours</span>
+			<div class="Div_loader">
+				<img src="assets/img/spinner.png" />
+				<div class="loader"></div>
+			</div>
+		</section>
+	</div>

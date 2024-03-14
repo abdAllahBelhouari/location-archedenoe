@@ -83,3 +83,7 @@ function sweetAlert(titre, message, url, icon = 'question') {
 		}
 	});
 }
+function Processing() {
+	document.getElementById("page-wrapper").style.display = "none";
+	document.getElementById("Wait").style.display = "block";
+}

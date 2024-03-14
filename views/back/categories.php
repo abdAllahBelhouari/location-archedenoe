@@ -96,7 +96,7 @@
 		</div>
 	</section><!-- End Breadcrumbs Section -->
 	<?=flash();?>
-	<section>
+	<section id="page-wrapper">
 		<div class="container-fluid">
 			<div class="row py-4">
 				<div class="col-sm-12 col-md-6 col-lg-5 col-xl-3">

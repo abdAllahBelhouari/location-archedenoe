@@ -6,10 +6,14 @@ body {
 	background: #fff;
 	color: #666666;
 	font-family: "Open Sans", sans-serif;
+  --iadn_dark: #213d5d;
+	--iadn_light: #7c7e7f;
+	--iadn_hover:#f2f2f2;
+	--iadn_beige:#fff5e3;
 }
 
 a {
-	color: #213d5d; 
+	color: var(--iadn_dark); 
 	text-decoration: none;
 	transition: all .4s;
 }
@@ -17,7 +21,7 @@ a {
 a:hover,
 a:active,
 a:focus {
-	color: #213d5d;
+	color: var(--iadn_dark);
 	font-weight: 600;
 	outline: none;
 	text-decoration: none;
@@ -40,7 +44,7 @@ h6 {
 	padding: 0;
 }
 .col-iadn {
-	color: #213d5d; 
+	color: var(--iadn_dark); 
 }
 .flash {
   margin: 10px;
@@ -76,7 +80,7 @@ button:hover, .mybtn:hover, .mybtn-light {
 }
 #btnForget {
   background: none;
-  color: #213d5d;
+  color: var(--iadn_dark);
   font-size: 16px;
   transition: all 0.4s;
 }
@@ -89,7 +93,7 @@ button:hover, .mybtn:hover, .mybtn-light {
 }
 .form-label {
   font-size: 14px;
-  color: #213d5d;
+  color: var(--iadn_dark);
   font-weight: 600;
 }
 .form-error {
@@ -102,10 +106,10 @@ button:hover, .mybtn:hover, .mybtn-light {
   cursor: pointer;
 }
 .action:hover {
-  color: #213d5d;
+  color: var(--iadn_dark);
 }
 .subtitle {
-	color: #213d5d;
+	color: var(--iadn_dark);
 	padding: 20px;
 	background: #f2f8ff;
 	margin-bottom: 10px;
@@ -326,7 +330,7 @@ button:hover, .mybtn:hover, .mybtn-light {
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
 .navbar .dropdown ul li:hover>a {
-  color: #213d5d;
+  color: var(--iadn_dark);
   background: #eee;
   border-left: 7px solid #0ff;
 }
@@ -433,7 +437,7 @@ button:hover, .mybtn:hover, .mybtn-light {
 .navbar-mobile a:hover,
 .navbar-mobile .active,
 .navbar-mobile li:hover>a {
-  color: #213d5d;
+  color: var(--iadn_dark);
 }
 
 .navbar-mobile .getstarted,
@@ -468,7 +472,7 @@ button:hover, .mybtn:hover, .mybtn-light {
 .navbar-mobile .dropdown ul a:hover,
 .navbar-mobile .dropdown ul .active:hover,
 .navbar-mobile .dropdown ul li:hover>a {
-  color: #213d5d;
+  color: var(--iadn_dark);
 }
 
 .navbar-mobile .dropdown>.dropdown-active {
@@ -479,7 +483,7 @@ button:hover, .mybtn:hover, .mybtn-light {
 # Conditions Section
 --------------------------------------------------------------*/
 #conditions h3 {
-  color: #213d5d;
+  color: var(--iadn_dark);
 }
 #conditions h3 span {
   color: #004eff;
@@ -521,7 +525,7 @@ section {
 }
 
 .breadcrumbs i {
-  color: #213d5d;
+  color: var(--iadn_dark);
   font-size: 27px;
 }
   .breadcrumbs h2 {
@@ -628,7 +632,7 @@ section {
 }
 
 #about .about-container .icon-box .icon i {
-  color: #213d5d;
+  color: var(--iadn_dark);
   font-size: 24px;
   line-height: 0;
 }
@@ -661,7 +665,7 @@ section {
 #facts .counters span {
   font-size: 48px;
   display: block;
-  color: #213d5d;
+  color: var(--iadn_dark);
 }
 
 #facts .counters p {
@@ -722,11 +726,11 @@ section {
 }
 
 #services .box:hover .icon i {
-  color: #213d5d;
+  color: var(--iadn_dark);
 }
 
 #services .box:hover .icon a {
-  color: #213d5d;
+  color: var(--iadn_dark);
 }
 
 #services .title {
@@ -924,7 +928,7 @@ section {
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #213d5d;
+  background-color: var(--iadn_dark);
 }
 
 .portfolio-details .portfolio-info {
@@ -1007,7 +1011,7 @@ section {
 }
 
 #team .member .social a:hover {
-  color: #213d5d;
+  color: var(--iadn_dark);
 }
 
 #team .member .social i {
@@ -1033,7 +1037,7 @@ section {
 
 #contact .info i {
   font-size: 32px;
-  color: #213d5d;
+  color: var(--iadn_dark);
   float: left;
   line-height: 0;
 }
@@ -1127,7 +1131,7 @@ section {
 
 #contact .php-email-form input::focus,
 #contact .php-email-form textarea::focus {
-  background-color: #213d5d;
+  background-color: var(--iadn_dark);
 }
 
 @keyframes animate-loading {
@@ -1187,7 +1191,7 @@ section {
 
 	&:hover {
 		background-color: darken(#73adf0, 10%);
-		color: #213d5d;
+		color: var(--iadn_dark);
 	}
 }
 .myaccordionTitleActive,
@@ -1268,4 +1272,53 @@ section {
 	font-size: 14px;
 	text-align: center;
 	margin-top: 20px;
+}
+/*-----------------------------------------------
+	LOADER
+-----------------------------------------------*/
+#Wait {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	min-height: 100vh;
+	text-align: center;
+	width: 100%;
+	color: var(--iadn_dark);
+}
+#Wait section { 
+	margin: 40vh auto 0;
+}
+#Wait section div { font-weight: 600; } 
+#Wait section span { color: var(--iadn_light); } 
+.Div_loader {
+	width: 120px;
+	height: 120px; 
+	margin: 20px auto;
+}
+.Div_loader img {
+	position: absolute;
+	width: 80px;
+	margin: 17px 0 0 -40px;
+	z-index: 5;
+}
+.loader {
+	border: 1px solid var(--iadn_light);
+	border-radius: 50%;
+	border-top: 1px solid var(--iadn_dark);
+	width: 120px;
+	height: 120px;
+	-webkit-animation: loader_spin 1s linear infinite;
+	animation: loader_spin 1s linear infinite;
+	background: #fafafa;
+}
+@-webkit-keyframes loader_spin {
+	0% { -webkit-transform: rotate(360deg); }
+	100% { -webkit-transform: rotate(0deg); }
+}
+@keyframes loader_spin {
+	0% { transform: rotate(360deg); }
+	100% { transform: rotate(0deg); }
 }

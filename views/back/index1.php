@@ -21,7 +21,7 @@
 		</div>
 	</section><!-- End Breadcrumbs Section -->
 	<?=flash();?>
-	<section>
+	<section id="page-wrapper">
 		<div class="container-fluid">
 			<div class="row justify-content-center py-4">
 				<div class="col-sm-12 col-md-10 col-lg-6 col-xl-7">
