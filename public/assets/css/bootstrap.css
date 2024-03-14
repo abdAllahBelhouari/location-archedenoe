@@ -2049,40 +2049,44 @@ progress {
   color: var(--bs-table-color);
   border-color: var(--bs-table-border-color);
 }
-
 .table-responsive {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  min-height:200px!important;
 }
-
 @media (max-width: 575.98px) {
   .table-responsive-sm {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    min-height:200px!important;
   }
 }
 @media (max-width: 767.98px) {
   .table-responsive-md {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    min-height:200px!important;
   }
 }
 @media (max-width: 991.98px) {
   .table-responsive-lg {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    min-height:200px!important;
   }
 }
 @media (max-width: 1199.98px) {
   .table-responsive-xl {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    min-height:200px!important;
   }
 }
 @media (max-width: 1399.98px) {
   .table-responsive-xxl {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    min-height:200px!important;
   }
 }
 
@@ -7683,7 +7687,12 @@ textarea.form-control-lg {
 .border-opacity-100 {
   --bs-border-opacity: 1;
 }
-
+.w-100p {
+  width: 100px !important;
+}
+.w-200p {
+  width: 200px !important;
+}
 .w-25 {
   width: 25% !important;
 }

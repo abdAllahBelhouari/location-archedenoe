@@ -118,9 +118,9 @@
 											</div>
 										</div>
 										<div class="text-end">
-											<a href="?route=categories"
+											<a href="?route=categories" onclick="Processing()"
 												class="mybtn-light">Annuler</a>
-											<button type="submit"
+											<button type="submit" onclick="Processing()"
 												name="subFormCategorie"><?= isset($_GET["categorie"]) && $_GET["categorie"]?'Modifier':'Ajouter'; ?></button>
 										</div>
 									</form>
@@ -143,14 +143,14 @@
 										<ul class="dropdown-menu"
 											aria-labelledby="dropdownMenuBtn">
 											<li>
-												<a class="dropdown-item"
+												<a class="dropdown-item" onclick="Processing()"
 													href="?route=categories&categorie=<?= $categorie['idCategorie']?>">
 													<i
 														class="bi bi-pencil-fill sub-bi"></i>
 													Modifier</a>
 											</li>
 											<li>
-												<a class="dropdown-item"
+												<a class="dropdown-item" onclick="Processing()"
 													href="?route=categories&show=<?= $categorie['idCategorie']?>">
 													<i
 														class="bi bi-eye-<?= is_null($categorie['webCategorie']) ? 'slash-' : '' ;?>fill sub-bi"></i>

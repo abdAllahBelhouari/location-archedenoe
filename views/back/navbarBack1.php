@@ -53,7 +53,7 @@
 						</li>
 						<li><a href="?route=motdepasse">Mot de passe<i class="bi bi-key-fill bx-sm"></i></a>
 						</li>
-						<li><a href="icons_bi.php">Icones BI<i
+						<li><a href="?route=icons_bi">Icones BI<i
 									class="bi bi-pin-angle-fill bx-sm"></i></a></li>
 					</ul>
 				</li>

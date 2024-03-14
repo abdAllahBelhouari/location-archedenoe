@@ -150,19 +150,19 @@
 						<div class="form-error"><?= $error['contenuTerme'] ?? ''; ?></div>
 					</div>
 					<div class="text-end">
-						<a href="?route=conditions" class="mybtn-light">Annuler</a>
-						<button type="submit"
+						<a href="?route=conditions" onclick="Processing()" class="mybtn-light">Annuler</a>
+						<button type="submit" onclick="Processing()"
 							name="subFormCondition"><?= isset($_GET["condition"]) && $_GET["condition"]?'Modifier':'Ajouter'; ?></button>
 					</div>
 
 				</form>
 
 				<div class="col-sm-12 col-md-6 col-lg-5 col-xl-5">
+					<h5>
+						Liste des conditions
+						<span class="badge bg-dark mx-3"><?=count($Conditions);?></span>
+					</h5>
 					<div class="table-responsive">
-						<h5>
-							Liste des conditions
-							<span class="badge bg-dark mx-3"><?=count($Conditions);?></span>
-						</h5>
 						<form action="#" method="POST">
 							<table class="table table-borered table-stripped table-condensed">
 								<thead>
@@ -184,14 +184,14 @@
 												<ul class="dropdown-menu"
 													aria-labelledby="dropdownMenuBtn">
 													<li>
-														<a class="dropdown-item"
+														<a class="dropdown-item" onclick="Processing()"
 															href="?route=conditions&condition=<?= $condition['idTerme']?>">
 															<i
 																class="bi bi-pencil-fill sub-bi"></i>
 															Modifier</a>
 													</li>
 													<li>
-														<a class="dropdown-item"
+														<a class="dropdown-item" onclick="Processing()"
 															href="?route=conditions&show=<?= $condition['idTerme']?>">
 															<i
 																class="bi bi-eye-<?= is_null($condition['webTerme']) ? 'slash-' : '' ;?>fill sub-bi"></i>
@@ -243,8 +243,6 @@
 							</div>
 						</form>
 					</div>
-
-
 				</div>
 			</div>
 		</div>
