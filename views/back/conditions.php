@@ -130,7 +130,7 @@
 						</div>
 						<div class="col-sm-6 col-md-6 col-lg-6 col-xl-3">
 							<div class="form-group">
-								<label for="webTerme" class="form-label">show sur le Web</label>
+								<label for="webTerme" class="form-label">Visible sur le Web</label>
 								<div class="text-center">
 									<input type="checkbox" name="webTerme"
 										class="form-checkbox" id="webTerme"

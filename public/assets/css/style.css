@@ -124,6 +124,14 @@ button:hover, .mybtn:hover, .mybtn-light {
   display: block;
   margin: 30px auto;
 }
+.imgPhotoArticle {
+  max-width: 100%;
+  max-height: 140px;
+  cursor: pointer;
+}
+.photoArticle {
+  display: none;
+}
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/

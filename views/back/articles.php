@@ -2,6 +2,8 @@
 	Login::controlAccess([1]);
 
 	$article = new Article();
+	$folder = "assets/pictures/";
+	$backPhotoArticle = $imgPhoto[1] = $imgPhoto[2] = $imgPhoto[3] = "assets/img/back_800x600.jpg";
 
 	if(isset($_GET["delete"]) && $_GET["delete"]){
 		$readArticle = $article->readArticle($_GET["delete"]);
@@ -38,8 +40,7 @@
 		}
 	} elseif (isset($_POST["subFormArticle"])){
 		unset($_POST["subFormArticle"]);
-		// var_dump($_FILES);
-		// die();
+
 		$checkData = $article->checkData($_POST,$_FILES);
 		$error = $checkData["error"];
 		$_POST = $checkData["data"];
@@ -72,11 +73,23 @@
 		$readArticle = $article->readArticle($_GET["article"]);
 		if($readArticle["result"]){
 			$_POST=$readArticle["response"];
+			for ($p=1; $p < 4; $p++) { 
+				if (!is_null($_POST["photo".$p."Article"])) {
+					if (file_exists($folder.$_POST["photo".$p."Article"])) {
+						$imgPhoto[$p] = $folder.$_POST["photo".$p."Article"];
+					} else {
+						$imgPhoto[$p] = $backPhotoArticle;
+					}
+				}
+			}
 		} else {
 			setFlash("Désolé !",$readArticle["response"],"danger");
 			header("location:?route=articles");
 			die();
 		}
+	}
+	for ($p=1; $p < 4; $p++) { 
+		$_POST["namePhoto"][$p] = is_null($_POST["photo".$p."Article"])? $backPhotoArticle : $_POST["photo".$p."Article"];
 	}
 
 
@@ -199,16 +212,22 @@
 								</div>
 							</div>
 						</div>
-
-						<div class="form-group">
-							<label for="photos" class="form-label">Photos</label>
-							<input type="file" name="photos[]"
-								class="form-control" 
-								multiple accept="image/*"									
-								id="photos" value="<?=$_POST['photos']??"";?>">
-							<div class="form-error"><?= $error['photos'] ?? ''; ?></div>
+						<div class="row">
+							<?php for ($p=1; $p <4 ; $p++) : ?>
+								<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+									<label for="photo<?= $p; ?>Article" class="form-label">Photo <?= $p; ?></label>
+									<div class="p-1 border rounded text-center">									
+										<input type="text" name="namePhoto[<?= $p; ?>]" value="<?= $_POST["namePhoto"][$p]; ?>">
+										<input type="file" accept="image/*" class="photoArticle" id="photo<?= $p; ?>Article" name="photo<?= $p; ?>Article"
+										onchange="showImgLoading(event, 'imgPhoto<?= $p; ?>Article');">
+										<img id="imgPhoto<?= $p; ?>Article" src="<?= $imgPhoto[$p]; ?>" class='imgPhotoArticle'
+										onclick="document.getElementById('photo<?= $p; ?>Article').click();">
+										<div class="form-error"><?= $error['photo'.$p.'Article'] ?? ''; ?></div>
+									</div>					
+								</div>
+							<?php endfor; ?>
 						</div>
-						<div class="text-end">
+						<div class="text-end mt-3">
 							<a href="?route=articles" onclick="Processing()" class="mybtn-light">Annuler</a>
 							<button type="submit" onclick="Processing()" 
 								name="subFormArticle"><?= isset($_GET["article"]) && $_GET["article"]?'Modifier':'Ajouter'; ?></button>
@@ -312,23 +331,6 @@
 	</section>
 
 </main>
-<script>
-	const selectPhoto = document.querySelector('#photos');
-
-// Listen for files selection
-selectPhoto.addEventListener('change', (e) => {
-    // Retrieve all files
-    const files = selectPhoto.files;
-
-    // Check files count
-    if (files.length > 3) {
-        alert(`3 photos maximum !`);
-		selectPhoto.value = "";        
-    }
-
-    // TODO: continue uploading on server
-});
-</script>
 <?php
 	require_once('../views/scripts.php');
 	require_once('footer.php');

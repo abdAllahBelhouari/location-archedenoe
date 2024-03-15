@@ -1,5 +1,12 @@
 <?php
     class Article {
+        /**
+         * Method to check if article's data are correct
+         *
+         * @param array $data
+         * @param array $files
+         * @return array [form error, form corrected]
+         */
         public function checkData($data,$files) {
             global $db;
             $error=[];
@@ -31,21 +38,25 @@
             if(!empty($data["tarifWeekArticle"]) && !is_numeric($data["tarifWeekArticle"])){
                 $error['tarifWeekArticle']="En chiffres";
             }
-            $txt = "";
-            foreach ($files["photos"]["type"] as $index => $type) {              
-                if (substr($type,0,5)!="image") {
-                    $txt.="<li>Le fichier <span style='color:#00f'>".$files["photos"]["name"][$index]."</span> n'est pas une photo</li>";
-                }
-            }
-            if($txt !=""){
-                $error['photos'] = $txt;
+            if ($files) {
+                for ($p=1; $p < 4 ; $p++) {                     
+                    if (!empty($files["photo".$p."Article"]["name"]) && substr($files["photo".$p."Article"]["type"],0,5)!="image") {
+                        $error['photo'.$p.'Article'] = "Ce fichier n'est pas une photo";
+                    }
+                } 
             }
             return [
                 "error"=>$error,
                 "data"=>$data
             ];
         }
-
+        /**
+         * Method to create an article
+         *
+         * @param array $data
+         * @param array $files
+         * @return array [bool, response]
+         */
         public function createArticle($data,$files) {
             global $db;
             $idCategorie = $db->quote($data["idCategorie"]);
@@ -56,10 +67,7 @@
             $tarifHeureArticle = empty($data["tarifHeureArticle"]) ? 'NULL' : $db->quote($data["tarifHeureArticle"]);
             $tarifJourArticle = empty($data["tarifJourArticle"]) ? 'NULL' : $db->quote($data["tarifJourArticle"]);
             $tarifWeekArticle = empty($data["tarifWeekArticle"]) ? 'NULL' : $db->quote($data["tarifWeekArticle"]);
-            echo"<pre>";
-            var_dump($files);
-            echo"</pre>";
-            die();
+
             $sql=$db->prepare("INSERT INTO article SET 
                                     libelleArticle = $libelleArticle,
                                     descriptionArticle = $descriptionArticle,
@@ -72,6 +80,28 @@
                                     disponibleArticle = '1'
                                 ");
             if ($sql->execute()) {
+                /**
+                 * photos processing
+                 */
+                $id = $db->lastInsertId();
+                $idArticle = $db->quote($id);
+                if ($files) {
+                    $folder = "assets/pictures/";
+                   for ($p=1; $p < 4 ; $p++) {                     
+                       if (!empty($files["photo".$p."Article"]["name"])) {
+                           $pathinfo = pathinfo($files["photo".$p."Article"]["name"]);
+                           $newName = "art_".$id."_".$p.".".$pathinfo['extension'];
+                            if(move_uploaded_file($files["photo".$p."Article"]["tmp_name"],$folder.$newName)) {
+                                $photoArticle = $db->quote($newName);
+                                $ref = "photo".$p."Article";   
+                                $db->query("UPDATE article SET
+                                                $ref=$photoArticle
+                                                WHERE idArticle=$idArticle 
+                                            ");
+                            }
+                        }
+                    } 
+                }
                 return [
                     "result" => true,
                     "response" => "L'article ".$data['libelleArticle']." a été enregistré avec succès."
@@ -83,7 +113,12 @@
                 ];
             }
         }
-
+        /**
+         * Method to read articles
+         *
+         * @param int $id
+         * @return array
+         */
         public function readArticle($id) {
             global $db;
             $idArticle=$db->quote($id);
@@ -100,7 +135,13 @@
                 ];
             }
         }
-
+        /**
+         * Method to update an article
+         *
+         * @param int $id
+         * @param array $data
+         * @return array
+         */
         public function updateArticle($id,$data) {
             global $db;
             $idArticle = $db->quote($id);
@@ -136,7 +177,13 @@
                 ];
             }
         }
-
+        /**
+         * Method to delete an article
+         *
+         * @param int $id
+         * @param string $libelle
+         * @return array
+         */
         public function deleteArticle($id,$libelle) {
             global $db;
             $idArticle=$db->quote($id);
@@ -153,7 +200,11 @@
                 ];
             }
         }
-
+        /**
+         * Method to get articles
+         *
+         * @return array
+         */
         public function getArticles() {
             global $db;
             return $db->query("SELECT article.*,libelleCategorie 
@@ -162,7 +213,12 @@
                                     ORDER BY libelleArticle
                                 ")->fetchAll();
         }
-
+        /**
+         * Method to set or unset available an article
+         *
+         * @param array $data
+         * @return array
+         */
         public function dispoArticle($data){
             global $db;
             $idArticle = $db->quote($data['idArticle']);

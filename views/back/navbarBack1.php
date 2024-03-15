@@ -21,9 +21,9 @@
 
 				<li class="dropdown"><a href="#">Membres<i class="bi bi-chevron-down"></i></a>
 					<ul>
-						<li><a href="?route=client">Clients<i class="bi bi-person-lines-fill bx-sm"></i></a>
+						<li><a href="?route=clients">Clients<i class="bi bi-person-lines-fill bx-sm"></i></a>
 						</li>
-						<li><a href="?route=admin">Admins<i class="bi bi-people-fill bx-sm"></i></a></li>
+						<li><a href="?route=admins">Admins<i class="bi bi-people-fill bx-sm"></i></a></li>
 					</ul>
 				</li>
 

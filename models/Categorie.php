@@ -1,6 +1,11 @@
 <?php
     class Categorie {
-
+        /**
+         * Method to check if categorie's data are correct
+         *
+         * @param array $data
+         * @return array
+         */
         public function checkData($data) {
             global $db;
             $error=[];
@@ -21,7 +26,12 @@
                 "data"=>$data
             ];
         }
-
+        /**
+         * Method to create a category
+         *
+         * @param string $libelle
+         * @return array
+         */
         public function createCategorie($libelle) {
             global $db;
             $libelleCategorie = $db->quote($libelle);
@@ -41,7 +51,12 @@
                 ];
             }
         }
-
+        /**
+         * Method to read categories
+         *
+         * @param int $id
+         * @return array
+         */
         public function readCategorie($id) {
             global $db;
             $idCategorie=$db->quote($id);
@@ -58,7 +73,13 @@
                 ];
             }
         }
-
+        /**
+         * Method to update a category
+         *
+         * @param int $id
+         * @param string $libelle
+         * @return array
+         */
         public function updateCategorie($id,$libelle) {
             global $db;
             $idCategorie = $db->quote($id);
@@ -79,7 +100,13 @@
                 ];
             }  
         }
-
+        /**
+         * Method to delete a category
+         *
+         * @param int $id
+         * @param string $libelle
+         * @return array
+         */
         public function deleteCategorie($id,$libelle) {
             global $db;
             $idCategorie=$db->quote($id);
@@ -96,13 +123,23 @@
                 ];
             }
         }
-
+        /**
+         * Method to get categories
+         *
+         * @param boolean $web
+         * @return array
+         */
         public function getCategories($web=false) {
             global $db;
             $WEB = $web ? "WHERE webCategorie = '1'" : "" ;
             return $db->query("SELECT * FROM categorie $WEB ORDER BY libelleCategorie")->fetchAll();
         }
-
+        /**
+         * Method to show or display a category on the web
+         *
+         * @param array $data
+         * @return array
+         */
         public function showWeb($data){
             global $db;
             $idCategorie = $db->quote($data['idCategorie']);
