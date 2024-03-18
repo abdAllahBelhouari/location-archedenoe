@@ -9,7 +9,6 @@
 	require_once('navbarFront.php');
 ?>
 <main id="main">
-	<!-- ======= Breadcrumbs Section ======= -->
 	<section class="breadcrumbs">
 		<div class="container">
 			<div class="d-flex justify-content-between align-items-center">
@@ -20,7 +19,7 @@
 				</ol>
 			</div>
 		</div>
-	</section><!-- End Breadcrumbs Section -->
+	</section>
 
 	<section id="register" class="pt-4 pb-5">
 		<div class="container">
@@ -74,9 +73,9 @@
 						</div>
 					</div>
 					<div class="my-3 text-center" data-aos="fade-up" data-aos-delay="200">
-						<button type="submit">Enregistrer</button>
+						<button type="submit" class="mybtn">Enregistrer</button>
 						<div class="mt-5 text-center">
-							<a href='?route=login'>Déjà inscrit ...</a>
+							<a href='?route=login'>Déjà inscrit</a>
 						</div>
 					</div>
 				</div>

@@ -60,41 +60,60 @@ h6 {
   transform: scale(.9);
   opacity: .9;
 }
-button, .mybtn, .mybtn-light:hover {
-  background: #213d5d;
-  border: 0;
-  padding: 8px 24px;
-  color: #fff;
-  transition: 0.4s;
-  border-radius: 7px;
-  font-size: 14px;
-  margin: 0 3px 7px 0;
+.mybtn, .mybtn-light:hover {
+	background: #213d5d;
+	border: 0;
+	padding: 8px 24px;
+	color: #fff;
+	transition: 0.4s;
+	border-radius: 7px;
+	font-size: 14px;
+	margin: 0 2px 7px 0;
 }
-button:hover, .mybtn:hover, .mybtn-light {
-  background: #999;
-  color: #fff;
-  font-weight: normal !important;
-  padding: 8px 24px;
-  border-radius: 7px;
-  font-size: 14px;
+.mybtn:hover, .mybtn-light {
+	background: #999;
+	color: #fff;
+	font-weight: normal !important;
+	padding: 8px 24px;
+	border-radius: 7px;
+	font-size: 14px;
+	margin: 0 2px 7px 0;
+}
+.swal2-confirm {
+	margin-left: 5px;
 }
 #btnForget {
-  background: none;
-  color: var(--iadn_dark);
-  font-size: 16px;
-  transition: all 0.4s;
+	background: none;
+	color: var(--iadn_dark);
+	font-size: 16px;
+	transition: all 0.4s;
 }
 #btnForget:hover {
-  transform: scale(1.05);
-  font-weight: 600 !important;
+	transform: scale(1.05);
+	font-weight: 600 !important;
+}
+.mybtn-xs {
+	border: 0;
+	padding: 3px 7px;
+	color: #fff;
+	transition: 0.4s;
+	border-radius: 4px;
+	font-size: 9pt;
+	display: block;
+	margin: 5px auto;
+	background: #999;
+}
+.mybtn-xs:hover {
+	background: #213d5d;
+	color: #eee;
 }
 .form-group {
 	margin-bottom: 10px;
 }
 .form-label {
-  font-size: 14px;
-  color: var(--iadn_dark);
-  font-weight: 600;
+	font-size: 14px;
+	color: var(--iadn_dark);
+	font-weight: 600;
 }
 .form-error {
   color: #FF0000;
@@ -124,10 +143,14 @@ button:hover, .mybtn:hover, .mybtn-light {
   display: block;
   margin: 30px auto;
 }
+.divPhotoArticle {
+	height: 150px;
+	padding: 10px;
+}
 .imgPhotoArticle {
-  max-width: 100%;
-  max-height: 140px;
-  cursor: pointer;
+	max-width: 100%;
+	max-height: 140px;
+	cursor: pointer;
 }
 .photoArticle {
   display: none;

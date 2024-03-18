@@ -27,7 +27,6 @@
 	require_once('navbarFront.php');
 ?>
 <main id="main">
-	<!-- ======= Breadcrumbs Section ======= -->
 	<section class="breadcrumbs">
 		<div class="container">
 			<div class="d-flex justify-content-between align-items-center">
@@ -38,7 +37,7 @@
 				</ol>
 			</div>
 		</div>
-	</section><!-- End Breadcrumbs Section -->
+	</section>
 	<?=flash();?>
 	<section id="register" class="pt-4 pb-5">
 		<div class="container">
@@ -66,9 +65,10 @@
 						<div class="form-error"><?= $error['passwordMembre'] ?? ''; ?></div>
 					</div>
 					<div class="my-3 text-center" data-aos="fade-up" data-aos-delay="200">
-						<button type="submit" name="subFormLogin">Valider</button>
+						<button type="submit" class="mybtn" name="subFormLogin">Valider</button>
 						<div class="mt-5 text-center">
-							<button type="submit" name="subFormForget" id="btnForget">Mot de
+							<button type="submit" class="mybtn" name="subFormForget"
+								id="btnForget">Mot de
 								passe oublié</button><br>
 							<a href='?route=register'>S'inscrire</a>
 						</div>

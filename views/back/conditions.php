@@ -93,18 +93,17 @@
 	require_once('navbarBack1.php')
 ?>
 <main id="main">
-	<!-- ======= Breadcrumbs Section ======= -->
 	<section class="breadcrumbs">
 		<div class="container">
-			<div class="d-flex justify-content-between align-items-center">
-				<h2>
-					<i class="bi bi-list-stars"></i>
-					Gestion des conditions
-				</h2>
-			</div>
+			<h2>
+				<i class="bi bi-list-stars"></i>
+				Gestion des conditions
+			</h2>
 		</div>
-	</section><!-- End Breadcrumbs Section -->
+	</section>
+
 	<?=flash();?>
+
 	<section id="page-wrapper">
 		<div class="container-fluid">
 			<div class="row py-4">
@@ -113,9 +112,11 @@
 						<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
 							<div class="form-group">
 								<label for="titreTerme" class="form-label">Titre</label>
-								<input type="text" name="titreTerme" class="form-control"
-									id="titreTerme" value="<?=$_POST['titreTerme']??"";?>">
-								<div class="form-error"><?= $error['titreTerme'] ?? ''; ?></div>
+								<input type="text" name="titreTerme"
+									class="form-control" id="titreTerme"
+									value="<?=$_POST['titreTerme']??"";?>">
+								<div class="form-error">
+									<?= $error['titreTerme'] ?? ''; ?></div>
 							</div>
 						</div>
 						<div class="col-sm-6 col-md-6 col-lg-6 col-xl-3">
@@ -124,20 +125,24 @@
 								<input type="text" name="indexTerme"
 									class="form-control text-center" maxlength="2"
 									onkeypress="return VerifCasse(event,'number')"
-									id="indexTerme" value="<?=$_POST['indexTerme']??"";?>">
-								<div class="form-error"><?= $error['indexTerme'] ?? ''; ?></div>
+									id="indexTerme"
+									value="<?=$_POST['indexTerme']??"";?>">
+								<div class="form-error">
+									<?= $error['indexTerme'] ?? ''; ?></div>
 							</div>
 						</div>
 						<div class="col-sm-6 col-md-6 col-lg-6 col-xl-3">
 							<div class="form-group">
-								<label for="webTerme" class="form-label">Visible sur le Web</label>
+								<label for="webTerme" class="form-label">Visible sur le
+									Web</label>
 								<div class="text-center">
 									<input type="checkbox" name="webTerme"
 										class="form-checkbox" id="webTerme"
 										<?= isset($_POST["webTerme"]) && (int)$_POST["webTerme"]==1 ?'checked':NULL;?>
 										value="1">
 								</div>
-								<div class="form-error"><?= $error['webTerme'] ?? ''; ?></div>
+								<div class="form-error"><?= $error['webTerme'] ?? ''; ?>
+								</div>
 							</div>
 						</div>
 
@@ -150,8 +155,9 @@
 						<div class="form-error"><?= $error['contenuTerme'] ?? ''; ?></div>
 					</div>
 					<div class="text-end">
-						<a href="?route=conditions" onclick="Processing()" class="mybtn-light">Annuler</a>
-						<button type="submit" onclick="Processing()"
+						<a href="?route=conditions" onclick="Processing()"
+							class="mybtn-light">Annuler</a>
+						<button type="submit" onclick="Processing()" class="mybtn"
 							name="subFormCondition"><?= isset($_GET["condition"]) && $_GET["condition"]?'Modifier':'Ajouter'; ?></button>
 					</div>
 
@@ -164,7 +170,8 @@
 					</h5>
 					<div class="table-responsive">
 						<form action="#" method="POST">
-							<table class="table table-borered table-stripped table-condensed">
+							<table
+								class="table table-borered table-stripped table-condensed">
 								<thead>
 									<tr>
 										<th class="w-100">Titre</th>
@@ -184,14 +191,16 @@
 												<ul class="dropdown-menu"
 													aria-labelledby="dropdownMenuBtn">
 													<li>
-														<a class="dropdown-item" onclick="Processing()"
+														<a class="dropdown-item"
+															onclick="Processing()"
 															href="?route=conditions&condition=<?= $condition['idTerme']?>">
 															<i
 																class="bi bi-pencil-fill sub-bi"></i>
 															Modifier</a>
 													</li>
 													<li>
-														<a class="dropdown-item" onclick="Processing()"
+														<a class="dropdown-item"
+															onclick="Processing()"
 															href="?route=conditions&show=<?= $condition['idTerme']?>">
 															<i
 																class="bi bi-eye-<?= is_null($condition['webTerme']) ? 'slash-' : '' ;?>fill sub-bi"></i>
@@ -230,7 +239,8 @@
 									<?php endforeach; ?>
 									<?php else: ?>
 									<tr>
-										<td colspan="2" class="text-center py-4">
+										<td colspan="2"
+											class="text-center py-4">
 											Aucune condition enregistrée
 										</td>
 									</tr>
@@ -239,7 +249,8 @@
 								</tbody>
 							</table>
 							<div class="text-end">
-								<button type="submit" name="subFormReindexer">Réindexer</button>
+								<button type="submit" class="mybtn"
+									name="subFormReindexer">Réindexer</button>
 							</div>
 						</form>
 					</div>

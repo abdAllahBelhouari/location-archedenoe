@@ -84,21 +84,20 @@
 	require_once('navbarBack1.php');
 ?>
 <main id="main">
-	<!-- ======= Breadcrumbs Section ======= -->
 	<section class="breadcrumbs">
 		<div class="container">
-			<div class="d-flex justify-content-between align-items-center">
-				<h2>
-					<i class="bi bi-diagram-3-fill"></i>
-					Gestion des catégories
-				</h2>
-			</div>
+			<h2>
+				<i class="bi bi-diagram-3-fill"></i>
+				Gestion des catégories
+			</h2>
 		</div>
-	</section><!-- End Breadcrumbs Section -->
+	</section>
+
 	<?=flash();?>
+
 	<section id="page-wrapper">
-		<div class="container-fluid">
-			<div class="row py-4">
+		<div class="container ">
+			<div class="row py-4 justify-content-center">
 				<div class="col-sm-12 col-md-6 col-lg-5 col-xl-3">
 					<table class="table table-borered table-stripped table-condensed">
 						<thead>
@@ -118,9 +117,12 @@
 											</div>
 										</div>
 										<div class="text-end">
-											<a href="?route=categories" onclick="Processing()"
+											<a href="?route=categories"
+												onclick="Processing()"
 												class="mybtn-light">Annuler</a>
-											<button type="submit" onclick="Processing()"
+											<button type="submit"
+												onclick="Processing()"
+												class="mybtn"
 												name="subFormCategorie"><?= isset($_GET["categorie"]) && $_GET["categorie"]?'Modifier':'Ajouter'; ?></button>
 										</div>
 									</form>
@@ -143,14 +145,16 @@
 										<ul class="dropdown-menu"
 											aria-labelledby="dropdownMenuBtn">
 											<li>
-												<a class="dropdown-item" onclick="Processing()"
+												<a class="dropdown-item"
+													onclick="Processing()"
 													href="?route=categories&categorie=<?= $categorie['idCategorie']?>">
 													<i
 														class="bi bi-pencil-fill sub-bi"></i>
 													Modifier</a>
 											</li>
 											<li>
-												<a class="dropdown-item" onclick="Processing()"
+												<a class="dropdown-item"
+													onclick="Processing()"
 													href="?route=categories&show=<?= $categorie['idCategorie']?>">
 													<i
 														class="bi bi-eye-<?= is_null($categorie['webCategorie']) ? 'slash-' : '' ;?>fill sub-bi"></i>
@@ -187,9 +191,7 @@
 						</tbody>
 					</table>
 				</div>
-
 			</div>
-		</div>
 	</section>
 
 </main>
