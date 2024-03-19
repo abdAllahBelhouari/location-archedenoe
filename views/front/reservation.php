@@ -5,11 +5,10 @@
 	$Title = "Réservation";
 	$Description = "Réservez dès maintenant votre matériel de loisirs, sportif, éducatif et d'animation chez Arche de Noé à Dugny. Profitez d'une expérience de réservation simple et rapide pour garantir le succès de votre événement. Réservez en ligne ou contactez-nous pour obtenir de l'aide et des conseils personnalisés.";
 
-	require_once('../views/header.php');
-	require_once('navbarFront.php');
+	require_once '../views/header.php';
+	require_once 'navbarFront.php';
 ?>
 <main id="main">
-	<!-- ======= Breadcrumbs Section ======= -->
 	<section class="breadcrumbs">
 		<div class="container">
 			<div class="d-flex justify-content-between align-items-center">
@@ -20,7 +19,9 @@
 				</ol>
 			</div>
 		</div>
-	</section><!-- End Breadcrumbs Section -->
+	</section>
+
+	<?= flash(); ?>
 
 	<section class="container pt-4 pb-5">
 		<div class="row justify-content-center py-5">
@@ -119,6 +120,6 @@
 	</section>
 </main>
 <?php
-	require_once('../views/scripts.php');
-	require_once('footer.php');
+	require_once '../views/scripts.php';
+	require_once 'footer.php';
 ?>

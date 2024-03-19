@@ -5,8 +5,8 @@
 	$Title = "Conditions de location";
 	$Description = "Découvrez nos conditions de location complètes et transparentes. Que vous recherchiez des informations sur la durée, les tarifs ou les modalités, notre page détaille tout ce dont vous avez besoin de savoir pour une expérience de location fluide. Louez en toute confiance avec location-archedenoe.fr.";
 
-	require_once('../views/header.php');
-	require_once('navbarFront.php');
+	require_once '../views/header.php';
+	require_once 'navbarFront.php';
 ?>
 <main id="main">
 	<section class="breadcrumbs">
@@ -44,12 +44,12 @@
 				notre association et des types de matériel que nous proposons à la location.
 			</li>
 			<div data-aos="fade-up" data-aos-delay="<?=$delay;?>">
-				<?php require_once('faq.php'); ?>
+				<?php require_once 'faq.php'; ?>
 			</div>
 		</div>
 	</section>
 </main>
 <?php
-	require_once('../views/scripts.php');
-	require_once('footer.php');
+	require_once '../views/scripts.php';
+	require_once 'footer.php';
 ?>

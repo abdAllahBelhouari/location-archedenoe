@@ -2,8 +2,8 @@
 	$Title = "Nous contacter";
 	$Description = "Besoin d'aide ou d'informations supplémentaires ? Contactez l'équipe d'Arche de Noé à Dugny. Nous sommes là pour répondre à toutes vos questions concernant la location de matériel de loisirs, sportif, éducatif et d'animation. N'hésitez pas à nous contacter via notre formulaire en ligne ou par téléphone.";
 
-	require_once('../views/header.php');
-	require_once('navbarFront.php');
+	require_once '../views/header.php';
+	require_once 'navbarFront.php';
 ?>
 <main id="main">
 	<section class="breadcrumbs">
@@ -83,6 +83,6 @@
 	</section>
 </main>
 <?php
-	require_once('../views/scripts.php');
-	require_once('footer.php');
+	require_once '../views/scripts.php';
+	require_once 'footer.php';
 ?>

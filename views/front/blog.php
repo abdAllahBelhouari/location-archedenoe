@@ -5,8 +5,8 @@
 	$Title = "Le Blog";
 	$Description = "Bienvenue sur le blog de l'Arche de Noé, votre destination en ligne pour tout ce qui concerne la location de matériel de loisirs, sportif, éducatif et d'animation à Dugny. De l'équipement pour des activités en plein air à des outils éducatifs innovants, notre blog est votre guide ultime pour tirer le meilleur parti de chaque location";
 	
-	require_once('../views/header.php');
-	require_once('navbarFront.php');
+	require_once '../views/header.php';
+	require_once 'navbarFront.php';
 ?>
 <main id="main">
 	<section class="breadcrumbs">
@@ -139,12 +139,12 @@
 			</div>
 
 			<div data-aos="fade-up" data-aos-delay="400">
-				<?php require_once('faq.php'); ?>
+				<?php require_once 'faq.php'; ?>
 			</div>
 		</div>
 	</section>
 </main>
 <?php
-	require_once('../views/scripts.php');
-	require_once('footer.php');
+	require_once '../views/scripts.php';
+	require_once 'footer.php';
 ?>

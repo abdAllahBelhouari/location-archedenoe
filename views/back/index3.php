@@ -1,16 +1,19 @@
 <?php
-	Login::controlAccess([1]);
+	Login::controlAccess([1,3]);
 
-	$Title = $Description = "Gestion des ";
-	require_once('../views/header.php');
-	require_once('navbarBack1.php');
+
+	
+	$Title = $Description = "Accueil";
+
+	require_once '../views/header.php';
+	require_once 'navbarBack3.php';
 ?>
 <main id="main">
 	<section class="breadcrumbs">
 		<div class="container">
 			<h2>
-				<i class="bi bi-person-bounding-box"></i>
-				Mon Profil
+				<i class="bi bi-house-fill"></i>
+				Mon Espace Membre
 			</h2>
 		</div>
 	</section>
@@ -24,12 +27,16 @@
 					colonne de gauche
 
 				</div>
+				<div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
+					colone de droite
+
+				</div>
 			</div>
 		</div>
 	</section>
 
 </main>
 <?php
-	require_once('../views/scripts.php');
-	require_once('footer.php');
+	require_once '../views/scripts.php';
+	require_once 'footer.php';
 ?>

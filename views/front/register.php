@@ -28,8 +28,8 @@
 	$Title = "S'inscrire";
 	$Description = "Inscrivez-vous chez Arche de Noé à Dugny pour bénéficier de nos services de location de matériel de loisirs, sportif, éducatif et d'animation. Créez un compte dès maintenant pour accéder à nos offres exclusives et simplifier vos réservations et locations.";
 
-	require_once('../views/header.php');
-	require_once('navbarFront.php');
+	require_once '../views/header.php';
+	require_once 'navbarFront.php';
 ?>
 <main id="main">
 	<section class="breadcrumbs">
@@ -200,7 +200,9 @@ function CheckType(id) {
 	}
 }
 </script>
-<?php require_once('../views/scripts.php'); ?>
+<?php 
+	require_once '../views/scripts.php'; 
+?>
 
 </body>
 

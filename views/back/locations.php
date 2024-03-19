@@ -2,8 +2,8 @@
 	Login::controlAccess([1]);
 
 	$Title = $Description = "Gestion des locations";
-	require_once('../views/header.php');
-	require_once('navbarBack1.php');
+	require_once '../views/header.php';
+	require_once 'navbarBack1.php';
 ?>
 <main id="main">
 	<!-- ======= Breadcrumbs Section ======= -->
@@ -23,11 +23,11 @@
 			<div class="row py-4">
 				<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
 					colonne de gauche
-				
+
 				</div>
 				<div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
 					colone de droite
-				
+
 				</div>
 			</div>
 		</div>
@@ -35,6 +35,6 @@
 
 </main>
 <?php
-	require_once('../views/scripts.php');
-	require_once('footer.php');
+	require_once '../views/scripts.php';
+	require_once 'footer.php';
 ?>

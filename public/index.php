@@ -1,4 +1,1 @@
-<?php
-require_once('autoload.php');
-
-?>
+<?php 	require_once 'autoload.php'; ?>

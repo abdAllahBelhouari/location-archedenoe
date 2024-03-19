@@ -5,8 +5,8 @@
 	$Title = "Titre de la page";
 	$Description = "Description de la page";
 	
-	require_once('../views/header.php');
-	require_once('navbarFront.php');
+	require_once'../views/header.php';
+	require_once'navbarFront.php';
 ?>
 <main id="main">
 	<section class="breadcrumbs">
@@ -23,6 +23,6 @@
 
 </main>
 <?php
-	require_once('../views/scripts.php');
-	require_once('footer.php');
+	require_once'../views/scripts.php';
+	require_once'footer.php';
 ?>

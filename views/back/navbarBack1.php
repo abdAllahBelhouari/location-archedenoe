@@ -61,7 +61,7 @@
 						<li><a href="?route=parametres">Paramètres<i
 									class="bi bi-sliders2-vertical bx-sm"></i></a>
 						</li>
-						<li><a href="?route=profils">Profils<i
+						<li><a href="?route=profil">Mon Profil<i
 									class="bi bi-person-bounding-box bx-sm"></i></a>
 						</li>
 						<li><a href="?route=icons_bi">Icones BI<i

@@ -24,8 +24,8 @@
 	$Title = "Se connecter";
 	$Description = "Connectez-vous à votre compte Arche de Noé à Dugny pour accéder à nos services de location de matériel de loisirs, sportif, éducatif et d'animation. Gérez facilement vos réservations, locations et profitez d'une expérience personnalisée.";
 
-	require_once('../views/header.php');
-	require_once('navbarFront.php');
+	require_once '../views/header.php';
+	require_once 'navbarFront.php';
 ?>
 <main id="main">
 	<section class="breadcrumbs">
@@ -84,7 +84,7 @@
 	</section>
 </main>
 <?php
-	require_once('../views/scripts.php');
+	require_once '../views/scripts.php';
 ?>
 </body>
 

@@ -89,8 +89,8 @@
 	
 	$Title = $Description = "Conditions de location";
 	
-	require_once('../views/header.php');
-	require_once('navbarBack1.php')
+	require_once '../views/header.php';
+	require_once 'navbarBack1.php';
 ?>
 <main id="main">
 	<section class="breadcrumbs">
@@ -260,6 +260,6 @@
 	</section>
 </main>
 <?php
-	require_once('../views/scripts.php');
-	require_once('footer.php');
+	require_once '../views/scripts.php';
+	require_once 'footer.php';
 ?>
