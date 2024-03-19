@@ -2100,5 +2100,5 @@
 </main>
 
 <?php
-  require 'footer_bis.php';
+  require 'footer.php';
 ?>

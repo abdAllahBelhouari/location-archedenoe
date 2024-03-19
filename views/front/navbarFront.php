@@ -1,11 +1,7 @@
-<!-- ======= Header ======= -->
 <header id="header" class="fixed-top d-flex align-items-center">
 	<div class="container d-flex justify-content-between align-items-center">
-
 		<div id="logo">
 			<a href="index.php"><img src="assets/img/logo_w.png" alt="logo"></a>
-			<!-- Uncomment below if you prefer to ue a text logo -->
-			<!--<h1><a href="index.html">Regna</a></h1>-->
 		</div>
 
 		<nav id="navbar" class="navbar">
@@ -36,4 +32,4 @@
 			<i class="bi bi-list mobile-nav-toggle"></i>
 		</nav><!-- .navbar -->
 	</div>
-</header><!-- End Header -->
+</header>

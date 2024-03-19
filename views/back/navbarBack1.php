@@ -10,48 +10,59 @@
 			<ul>
 				<li class="dropdown"><a href="#">Articles<i class="bi bi-chevron-down"></i></a>
 					<ul>
-						<li><a href="?route=articles">Articles<i class="bi bi-basket2 bx-sm"></i></a></li>
+						<li><a href="?route=articles">Articles<i
+									class="bi bi-basket2 bx-sm"></i></a></li>
 						<li><a href="?route=entretiens">Entretiens<i
 									class="bi bi-wrench-adjustable bx-sm"></i></a>
 						</li>
-						<li><a href="?route=categories">Catégories<i class="bi bi-diagram-3-fill bx-sm"></i></a>
+						<li><a href="?route=categories">Catégories<i
+									class="bi bi-diagram-3-fill bx-sm"></i></a>
 						</li>
 					</ul>
 				</li>
 
 				<li class="dropdown"><a href="#">Membres<i class="bi bi-chevron-down"></i></a>
 					<ul>
-						<li><a href="?route=clients">Clients<i class="bi bi-person-lines-fill bx-sm"></i></a>
+						<li><a href="?route=clients">Clients<i
+									class="bi bi-person-lines-fill bx-sm"></i></a>
 						</li>
-						<li><a href="?route=admins">Admins<i class="bi bi-people-fill bx-sm"></i></a></li>
+						<li><a href="?route=admins">Admins<i
+									class="bi bi-people-fill bx-sm"></i></a></li>
 					</ul>
 				</li>
 
 				<li class="dropdown"><a href="#">Activité<i class="bi bi-chevron-down"></i></a>
 					<ul>
-						<li><a href="?route=reservations">Réservations<i class="bi bi-calendar3 bx-sm"></i></a>
+						<li><a href="?route=reservations">Réservations<i
+									class="bi bi-calendar3 bx-sm"></i></a>
 						</li>
-						<li><a href="?route=locations">Locations<i class="bi bi-clipboard-check bx-sm"></i></a>
+						<li><a href="?route=locations">Locations<i
+									class="bi bi-clipboard-check bx-sm"></i></a>
 						</li>
-						<li><a href="?route=conditions">Conditions<i class="bi bi-list-stars bx-sm"></i></a>
+						<li><a href="?route=conditions">Conditions<i
+									class="bi bi-list-check bx-sm"></i></a>
 						</li>
 					</ul>
 				</li>
 
 				<li class="dropdown"><a href="#">Comptabilité<i class="bi bi-chevron-down"></i></a>
 					<ul>
-						<li><a href="?route=paiements">Paiements<i class="bi bi-currency-euro bx-sm"></i></a>
+						<li><a href="?route=versements">Versements<i
+									class="bi bi-currency-euro bx-sm"></i></a>
 						</li>
-						<li><a href="?route=depenses">Dépenses<i class="bi bi-basket2 bx-sm"></i></a></li>
-						<li><a href="?route=synthese">Synthèse<i class="bi bi-reception-4 bx-sm"></i></a></li>
+						<li><a href="?route=depenses">Dépenses<i
+									class="bi bi-basket2 bx-sm"></i></a></li>
+						<li><a href="?route=synthese">Synthèse<i
+									class="bi bi-reception-4 bx-sm"></i></a></li>
 					</ul>
 				</li>
 				<li class="dropdown"><a href="#">Autres<i class="bi bi-chevron-down"></i></a>
 					<ul>
-						<li><a href="?route=parametres">Paramètres<i class="bi bi-sliders2 bx-sm"></i></a></li>
-						<li><a href="?route=profils">Profils<i class="bi bi-person-square bx-sm"></i></a>
+						<li><a href="?route=parametres">Paramètres<i
+									class="bi bi-sliders2-vertical bx-sm"></i></a>
 						</li>
-						<li><a href="?route=motdepasse">Mot de passe<i class="bi bi-key-fill bx-sm"></i></a>
+						<li><a href="?route=profils">Profils<i
+									class="bi bi-person-bounding-box bx-sm"></i></a>
 						</li>
 						<li><a href="?route=icons_bi">Icones BI<i
 									class="bi bi-pin-angle-fill bx-sm"></i></a></li>

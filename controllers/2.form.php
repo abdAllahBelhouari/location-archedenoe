@@ -1,6 +1,6 @@
 <?php
-    $statuts=["","Administrateur","Agent","Client"];
-
+	$statuts=["","Administrateur","Agent","Client"];
+	$TypeMembre = ['', 'Particulier', 'Professionnel', 'Association', 'Autre'];
 
 	function setFlash($titre,$message,$statut='success'){
 		$_SESSION['flash']['titre']=$titre;
@@ -32,6 +32,23 @@
 		}
 	}
 
+	function dateNow() {
+		$objTimeZone = new DateTimeZone("Europe/Madrid");
+		$objDateTime = new DateTime();
+		$objDateTime->setTimezone($objTimeZone);
+
+		if (!empty($strDateTime)) {
+			$fltUnixTime = (is_string($strDateTime)) ? strtotime($strDateTime) : $strDateTime;
+			if (method_exists($objDateTime, "setTimestamp")) {
+				$objDateTime->setTimestamp($fltUnixTime);
+			} else {
+				$arrDate = getdate($fltUnixTime);
+				$objDateTime->setDate($arrDate["year"], $arrDate["mon"], $arrDate["mday"]);
+				$objDateTime->setTime($arrDate["hours"], $arrDate["minutes"], $arrDate["seconds"]);
+			}
+		}
+		return $objDateTime->format("Y-m-d H:i:s");
+	}
 
 
 ?>

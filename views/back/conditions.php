@@ -29,11 +29,11 @@
 			header("location:?route=conditions");
 			die();
 		}
-	} elseif(isset($_GET["show"]) && $_GET["show"]){
+	} elseif ( isset($_GET["show"]) && $_GET["show"]) {
 		$readCondition = $condition->readCondition($_GET["show"]);
-		if($readCondition["result"]){
+		if ( $readCondition["result"] ) {
 			$showWeb=$condition->showWeb($readCondition["response"]);
-			if($showWeb["result"]){ 
+			if ( $showWeb["result"] ) { 
 				setFlash("Félicitations.",$showWeb["response"]);
 			} else {
 				setFlash("Désolé !",$showWeb["response"],"danger");
@@ -45,16 +45,16 @@
 			header("location:?route=conditions");
 			die();
 		}
-	} elseif(isset($_POST["subFormCondition"])){
+	} elseif ( isset($_POST["subFormCondition"]) ) {
 		unset($_POST["subFormCondition"]);
 		$checkData = $condition->checkData($_POST);
 		$error = $checkData["error"];
 		$_POST = $checkData["data"];
 
-		if($error){
+		if ( $error ) {
 			$e=count($error)==1?"l'erreur contenue":"les ".count($error)." erreurs contenues";
 			setFlash("Désolé !","Veuillez corriger ".$e." dans le formulaire.","danger");	
-		}else{
+		} else {
 			if(isset($_GET["condition"]) && $_GET["condition"]){
 				$updateCondition = $condition->updateCondition($_POST,$_GET["condition"]);
 				if($updateCondition["result"]){
@@ -96,7 +96,7 @@
 	<section class="breadcrumbs">
 		<div class="container">
 			<h2>
-				<i class="bi bi-list-stars"></i>
+				<i class="bi bi-list-check"></i>
 				Gestion des conditions
 			</h2>
 		</div>

@@ -1,20 +1,20 @@
 <?php
 	
-	$login=new Login();
+	$login = new Login();
 
-	if (isset ($_POST['subFormLogin'])){
+	if ( isset ($_POST['subFormLogin']) ) {
 		unset($_POST['subFormLogin']);
 		$error=$login->checkData($_POST);
-		if($error){
+		if ( $error ) {
 			$e=count($error)==1?"l'erreur contenue":"les ".count($error)." erreurs contenues";
 			setFlash("Désolé !","Veuillez corriger ".$e." dans le formulaire.","danger");	
-		}else{
+		} else {
 			$connexion=$login->connexion($_POST);
-			if($connexion){
+			if ( $connexion ) {
 				setFlash("Félicitations.",$_SESSION['Auth']['username'].", vous êtes maintenant connecté".((int)$_SESSION['Auth']['genreMembre']==1?'e':"").".");
 				header("location:?route=index".$_SESSION['Auth']['level']);
 				die();
-			}else{
+			} else {
 				setFlash("Désolé !","Aucun compte correspondant n'a été trouvé.","danger");
 			}
 		}
@@ -38,9 +38,10 @@
 			</div>
 		</div>
 	</section>
-	<?=flash();?>
-	<section id="register" class="pt-4 pb-5">
-		<div class="container">
+
+	<section id="page-wrapper">
+		<?=flash();?>
+		<div class="container pt-4 pb-5">
 			<form action="#" method="POST" role="form" class="row justify-content-center py-5">
 				<h4 class="text-center py-4" data-aos="fade-down">Se connecter</h4>
 
@@ -65,12 +66,15 @@
 						<div class="form-error"><?= $error['passwordMembre'] ?? ''; ?></div>
 					</div>
 					<div class="my-3 text-center" data-aos="fade-up" data-aos-delay="200">
-						<button type="submit" class="mybtn" name="subFormLogin">Valider</button>
+						<a href="?route" class="mybtn-light" onclick="Processing()">Retour au
+							site</a>
+						<button type="submit" class="mybtn" name="subFormLogin"
+							onclick="Processing()">Valider</button>
 						<div class="mt-5 text-center">
 							<button type="submit" class="mybtn" name="subFormForget"
 								id="btnForget">Mot de
 								passe oublié</button><br>
-							<a href='?route=register'>S'inscrire</a>
+							<a href='?route=register' onclick="Processing();">S'inscrire</a>
 						</div>
 					</div>
 				</div>
