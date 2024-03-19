@@ -5,17 +5,18 @@
 	if ( isset ($_POST['subFormLogin']) ) {
 		unset($_POST['subFormLogin']);
 		$error=$login->checkData($_POST);
+
 		if ( $error ) {
 			$e=count($error)==1?"l'erreur contenue":"les ".count($error)." erreurs contenues";
 			setFlash("Désolé !","Veuillez corriger ".$e." dans le formulaire.","danger");	
 		} else {
 			$connexion=$login->connexion($_POST);
-			if ( $connexion ) {
-				setFlash("Félicitations.",$_SESSION['Auth']['username'].", vous êtes maintenant connecté".((int)$_SESSION['Auth']['genreMembre']==1?'e':"").".");
+			if ( $connexion["result"] ) {
+				setFlash("Félicitations.",$connexion["response"]);
 				header("location:?route=index".$_SESSION['Auth']['level']);
 				die();
 			} else {
-				setFlash("Désolé !","Aucun compte correspondant n'a été trouvé.","danger");
+				setFlash("Désolé !",$connexion["response"],"danger");
 			}
 		}
 	}
