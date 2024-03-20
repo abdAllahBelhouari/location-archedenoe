@@ -1,10 +1,10 @@
 <?php
 
-	$client = new Client();
+	$membre = new Membre();
 
 	if ( isset($_POST['subFormRegister']) ) {
 		unset($_POST['subFormRegister']);
-		$checkData = $client->checkData($_POST);
+		$checkData = $membre->checkData($_POST, 3);
 		
 		$error = $checkData['error'];
 		$_POST = $checkData['data'];
@@ -13,12 +13,12 @@
 			$e=count($error)==1?"l'erreur contenue":"les ".count($error)." erreurs contenues";
 			setFlash("Désolé !","Veuillez corriger ".$e." dans le formulaire.","danger");	
 		} else {
-			$createClient = $client->createMembre($_POST);
-			if ( $createClient['result'] ) {
-				setFlash("Félicitations.",$createClient['response']);
+			$createMembre = $membre->createMembre($_POST, 3);
+			if ( $createMembre['result'] ) {
+				setFlash("Félicitations.",$createMembre['response']);
 				header("Location:?route=login");
 			} else {
-				setFlash("Désolé ! ",$createClient['response'], "danger");
+				setFlash("Désolé ! ",$createMembre['response'], "danger");
 				header("Location:?route=register");
 			}
 			die();
@@ -85,7 +85,7 @@
 					<div class="form-group">
 						<label for="typeMembre" class="form-label">Vous êtes</label>
 						<select name="typeMembre" id="typeMembre" class="form-control"
-							onchange="CheckType(this.options[selectedIndex].value);">
+							onchange="checkTypeMembre(this.options[selectedIndex].value);">
 							<option value="" selected></option>
 							<?php for ( $t=1 ; $t < count($TypeMembre) ; $t++ ): ?>
 							<option <?= (isset($_POST["typeMembre"])  && $_POST["typeMembre"]==$t) ? "selected" : ""; ?>
@@ -188,18 +188,7 @@
 		</div>
 	</section>
 </main>
-<script>
-function CheckType(id) {
-	let div = document.getElementById('divEntiteMembre');
-	if (id == 1) {
-		div.style.display = 'none';
-	} else {
-		let txt = id == 2 ? 'entreprise' : (id == 3 ? 'Association' : 'structure');
-		document.getElementById('spanEntite').innerText = document.getElementById('entite').value = txt;
-		div.style.display = 'block';
-	}
-}
-</script>
+
 <?php 
 	require_once '../views/scripts.php'; 
 ?>

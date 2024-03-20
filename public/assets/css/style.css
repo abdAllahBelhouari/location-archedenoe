@@ -17,7 +17,22 @@ a {
 	text-decoration: none;
 	transition: all .4s;
 }
-
+.bg-iadn-dark {
+	background: var(--iadn_dark);
+	color: #fff;
+}
+.bg-iadn-light {
+	background: var(--iadn_light);
+	color: #fff;
+}
+.bg-iadn-beige {
+	background: var(--iadn_beige);
+	color: #333;
+}
+.bg-iadn:hover {
+	background: var(--iadn_hover);
+	color: #333;
+}
 a:hover,
 a:active,
 a:focus {

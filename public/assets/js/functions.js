@@ -1,7 +1,19 @@
+function checkTypeMembre(id) {
+	let div = document.getElementById('divEntiteMembre');
+	if ( id > 1) {
+		let txt = id == 2 ? 'entreprise' : (id == 3 ? 'Association' : 'structure');
+		document.getElementById('spanEntite').innerText = document.getElementById('entite').value = txt;
+		div.style.display = 'block';
+	} else {
+		div.style.display = 'none';
+	}
+}
+
 function showMdp(id){
     let champ=document.getElementById(id);
     champ.type=champ.type==="password"?"text":"password";
 }
+
 function VerifCasse(evt,type) {
     if ( evt.keyCode != 13 ) {
             switch(type) {
@@ -83,6 +95,7 @@ function sweetAlert(titre, message, url, icon = 'question') {
 		}
 	});
 }
+
 function Processing() {
 	document.getElementById("page-wrapper").style.display = "none";
 	document.getElementById("Wait").style.display = "block";
