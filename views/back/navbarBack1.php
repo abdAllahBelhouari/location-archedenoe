@@ -51,9 +51,14 @@
 									class="bi bi-currency-euro bx-sm"></i></a>
 						</li>
 						<li><a href="?route=depenses">Dépenses<i
-									class="bi bi-basket2 bx-sm"></i></a></li>
+									class="bi bi-wallet2 bx-sm"></i></a>
+						</li>
+						<li><a href="?route=secteurs">Secteurs<i
+									class="bi bi-folder2 bx-sm"></i></a>
+						</li>
 						<li><a href="?route=synthese">Synthèse<i
-									class="bi bi-reception-4 bx-sm"></i></a></li>
+									class="bi bi-reception-4 bx-sm"></i></a>
+						</li>
 					</ul>
 				</li>
 				<li class="dropdown"><a href="#">Autres<i class="bi bi-chevron-down"></i></a>

@@ -4,10 +4,10 @@
 		public function checkData( $data, $level, $id = false ) {
 			$error=[];
 			global $db;
-			if ( empty($data["genreMembre"]) ) {
+			if ( empty($data["genreMembre"]) ) { 
 				$error['genreMembre']="Définir la civilité";
 			}
-			if ( empty($data["nomMembre"]) ) {
+			if ( empty($data["nomMembre"]) ) { 
 				$error['nomMembre']="Saisir votre nom";
 			} else {
 				$data['nomMembre'] = trim(mb_convert_case($data['nomMembre'], MB_CASE_TITLE, "UTF-8"));
@@ -94,7 +94,7 @@
 			$cpMembre = $db->quote($data['cpMembre']);
 			$villeMembre = $db->quote($data['villeMembre']);
 			$emailMembre = $db->quote($data['emailMembre']);
-			$mobileMembre = empty($data["mobileMembre"]) ? 'NULL' : $db->quote(trim(wordwrap(preg_replace("/\s+/", "", $data["mobileMembre"]), 2, " ", 1)));
+			$mobileMembre = empty($data["mobileMembre"]) ? 'NULL' : $db->quote($data["mobileMembre"]);
 			$passwordMembre = $db->quote(password_hash($data['passwordMembre'], PASSWORD_DEFAULT));
 			$horodatageMembre = $db->quote(dateNow());
 			$levelsMembre = $db->quote($level);
@@ -139,7 +139,7 @@
 			$cpMembre = $db->quote($data['cpMembre']);
 			$villeMembre = $db->quote($data['villeMembre']);
 			$emailMembre = $db->quote($data['emailMembre']);
-			$mobileMembre = empty($data["mobileMembre"]) ? 'NULL' : $db->quote(trim(wordwrap(preg_replace("/\s+/", "", $data["mobileMembre"]), 2, " ", 1)));
+			$mobileMembre = empty($data["mobileMembre"]) ? 'NULL' : $db->quote($data["mobileMembre"]);
 
 			$sql = $db->prepare("UPDATE membre SET
 									genreMembre = $genreMembre,
@@ -178,7 +178,6 @@
 			}
 		}
 
-
 		public function checkPassword ($data) {
 			$error = [];
 			if ( empty($data['newPass']) ) {
@@ -191,6 +190,7 @@
 			}
 			return $error;
 		}
+
 		public function updatePassword ($pass, $id) {
 			global $db;
 			$hash = password_hash($pass, PASSWORD_DEFAULT);

@@ -1,12 +1,14 @@
 <?php
 	$statuts=["","Administrateur","Agent","Client"];
 	$TypeMembre = ['', 'Particulier', 'Professionnel', 'Association', 'Autre'];
+	$Paiement = ["", "Carte Bancaire", "Chèque", "Espèces", "Virement", "Exonération"];
 
 	function setFlash($titre,$message,$statut='success'){
 		$_SESSION['flash']['titre']=$titre;
 		$_SESSION['flash']['message']=$message;
 		$_SESSION['flash']['statut']=$statut;
 	}
+
 	function flash(){
 		if (isset($_SESSION['flash'])){
 			extract($_SESSION['flash']);
