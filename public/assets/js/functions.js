@@ -14,13 +14,17 @@ function showMdp(id){
     champ.type=champ.type==="password"?"text":"password";
 }
 
-function VerifCasse(evt,type) {
+function VerifCasse(evt, type) {
     if ( evt.keyCode != 13 ) {
             switch(type) {
-                    case "number":
-                            var accept = "0123456789";
-                            var txt = "En chiffres uniquement !";
-                            break;
+			case "rib":
+				var accept = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+				var txt = "Chiffres et lettres uniquement !";
+				break;
+			case "number":
+				var accept = "0123456789";
+				var txt = "En chiffres uniquement !";
+				break;
                     case "decimal":
                             var accept = "0123456789.-";
                             var txt = "Chiffres . et - acceptés !";

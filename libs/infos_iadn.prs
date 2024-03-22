@@ -6,4 +6,6 @@ iadnPhone = '01 83 37 75 84'
 iadnEmail = 'secretariat@institutarchedenoe.fr'
 iadnHttp = 'https://location-archedenoe.fr/'
 iadnRepresentant = 'Jean Guillaume'
- 
+iadnBic = 'FRPP321LBP'
+iadnIban = 'FR46 654F QSDF 987F Q9S8 F78D S9Q8 7F'
+iadnLogo = ''

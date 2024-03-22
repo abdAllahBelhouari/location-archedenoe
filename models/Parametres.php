@@ -44,6 +44,13 @@
 			} else {
 				$data['iadnRepresentant'] = mb_convert_case($data['iadnRepresentant'], MB_CASE_TITLE, "UTF-8");
 			}
+			if ( !empty($data['iadnBic']) ) {
+				$data['iadnBic'] = mb_convert_case($data['iadnBic'], MB_CASE_UPPER, "UTF-8");
+			}
+			if ( !empty($data['iadnIban']) ) {
+				$data['iadnIban'] = mb_convert_case($data['iadnIban'], MB_CASE_UPPER, "UTF-8");
+				$data['iadnIban'] = trim(wordwrap(preg_replace("/\s+/", "", $data['iadnIban']), 4, " ", 1));
+			}
 
 			if ( !empty($file["iadnLogo"]["tmp_name"]) ) {
 				$iadnLogo = $file["iadnLogo"];

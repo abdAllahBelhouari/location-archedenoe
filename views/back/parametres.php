@@ -151,12 +151,31 @@
 						<img id="iadnLogo_view" src="<?= $_SESSION['iadnLogo']; ?>" />
 					</div>
 					<div class="form-error"><?= $error['iadnLogo'] ?? ''; ?></div>
+
 					<?php if ( $_SESSION['iadnLogo'] != 'assets/img/logo_default.png' ): ?>
 					<i onclick="sweetAlert('Vous confirmez ?',
 											'Pour la suppression définitive  de ce logo !',
 											'?route=parametres&deleteLogo&<?= csrf(); ?>',
 											'warning')" class="bi bi-trash bx-sm link" title='Supprimer le logo'></i>
 					<?php endif; ?>
+
+					<div class="form-group mt-4">
+						<label class="form-label" for="iadnBic">BIC</label>
+						<input type="text" name="iadnBic" class="form-control text-center"
+							id="iadnBic" maxlength="11"
+							onkeypress="return VerifCasse(event,'rib')"
+							value="<?=$_POST['iadnBic']??"";?>">
+						<div class="form-error"><?= $error['iadnBic'] ?? ''; ?></div>
+					</div>
+
+					<div class="form-group">
+						<label class="form-label" for="iadnIban">IBAN</label>
+						<input type="text" name="iadnIban" class="form-control" id="iadnIban"
+							maxlength="34" onkeypress="return VerifCasse(event,'rib')"
+							value="<?=$_POST['iadnIban']??"";?>">
+						<div class="form-error"><?= $error['iadnIban'] ?? ''; ?></div>
+					</div>
+
 					<div class="my-1 text-end">
 						<a href="?route=parametres" class="mybtn-light"
 							onclick="Processing()">Annuler</a>
