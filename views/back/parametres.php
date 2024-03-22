@@ -1,6 +1,41 @@
 <?php
 	Login::controlAccess([1]);
 
+	$params = new Parametre();
+	
+	if ( isset($_GET['deleteLogo']) ) {
+		$deleteLogo = $params->deleteLogo();
+		if ( $deleteLogo['result'] ) {
+			setFlash("Opération terminée.",$deleteLogo['response']);
+		} else {
+			setFlash("Désolé !",$deleteLogo['response'],'danger');
+		}
+		header("Location:?route=parametres");
+		die();
+	} elseif ( isset($_POST['subFormParams']) ) {
+		unset($_POST['subFormParams']);
+		$checkParams = $params->checkParams($_POST, $_FILES);
+		$error = $checkParams['error'];
+		$_POST = $checkParams['data'];
+		
+		if ( $error ) {
+			$e=count($error)==1?"l'erreur contenue":"les ".count($error)." erreurs contenues";
+			setFlash("Désolé !","Veuillez corriger ".$e." dans le formulaire.","danger");	
+		} else {
+			$updateParams = $params->updateParams ( $_POST, $_FILES );
+			if ( $updateParams['result'] ) {
+				setFlash("Opération terminée.",$updateParams['response']);
+			} else {
+				setFlash("Désolé !",$updateParams['response'],'danger');
+			}
+			unset($_POST);
+			header("Location:?route=parametres");
+			die();
+		}
+	} else {
+		$_POST = $IADN;
+	}
+
 	$Title = $Description = "Gestion des ";
 	require_once '../views/header.php';
 	require_once 'navbarBack1.php';
@@ -26,16 +61,14 @@
 						<label class="form-label" for="iadnLibelle">libellé</label>
 						<input type="text" name="iadnLibelle" class="form-control"
 							id="iadnLibelle" value="<?=$_POST['iadnLibelle']??"";?>">
-						<div class="form-error"><?= $error['iadnLibelle'] ?? ''; ?>
-						</div>
+						<div class="form-error"><?= $error['iadnLibelle'] ?? ''; ?></div>
 					</div>
 
 					<div class="form-group">
 						<label class="form-label" for="iadnAdresse">Adresse</label>
 						<input type="text" name="iadnAdresse" class="form-control"
 							id="iadnAdresse" value="<?=$_POST['iadnAdresse']??"";?>">
-						<div class="form-error"><?= $error['iadnAdresse'] ?? ''; ?>
-						</div>
+						<div class="form-error"><?= $error['iadnAdresse'] ?? ''; ?></div>
 					</div>
 
 					<div class="row">
@@ -60,8 +93,7 @@
 									id="iadnVille"
 									value="<?=$_POST['iadnVille']??"";?>">
 								<div class="form-error">
-									<?= $error['iadnVille'] ?? ''; ?>
-								</div>
+									<?= $error['iadnVille'] ?? ''; ?></div>
 							</div>
 						</div>
 					</div>
@@ -71,12 +103,13 @@
 							<div class="form-group">
 								<label class="form-label"
 									for="iadnPhone">Téléphone</label>
-								<input type="text" name="iadnPhone" class="form-control"
-									id="iadnPhone"
+								<input type="text" name="iadnPhone"
+									class="form-control text-center" id="iadnPhone"
+									maxlength="10"
+									onkeypress="return VerifCasse(event,'number')"
 									value="<?=$_POST['iadnPhone']??"";?>">
 								<div class="form-error">
-									<?= $error['iadnPhone'] ?? ''; ?>
-								</div>
+									<?= $error['iadnPhone'] ?? ''; ?></div>
 							</div>
 						</div>
 
@@ -87,8 +120,7 @@
 									id="iadnEmail"
 									value="<?=$_POST['iadnEmail']??"";?>">
 								<div class="form-error">
-									<?= $error['iadnEmail'] ?? ''; ?>
-								</div>
+									<?= $error['iadnEmail'] ?? ''; ?></div>
 							</div>
 						</div>
 					</div>
@@ -97,8 +129,7 @@
 						<label class="form-label" for="iadnHttp">URL du site WEB</label>
 						<input type="text" name="iadnHttp" class="form-control" id="iadnHttp"
 							value="<?=$_POST['iadnHttp']??"";?>">
-						<div class="form-error"><?= $error['iadnHttp'] ?? ''; ?>
-						</div>
+						<div class="form-error"><?= $error['iadnHttp'] ?? ''; ?></div>
 					</div>
 
 					<div class="form-group">
@@ -106,22 +137,35 @@
 						<input type="text" name="iadnRepresentant" class="form-control"
 							id="iadnRepresentant"
 							value="<?=$_POST['iadnRepresentant']??"";?>">
-						<div class="form-error"><?= $error['iadnRepresentant'] ?? ''; ?>
-						</div>
+						<div class="form-error"><?= $error['iadnRepresentant'] ?? ''; ?></div>
 					</div>
+				</div>
 
+				<div class="col-sm-12 col-md-8 col-lg-3 col-xl-3">
+					<input type="file" id="iadnLogo" name="iadnLogo"
+						onchange="showImgLoading(event, 'iadnLogo_view')" accept="image/*"
+						style="display: none;" />
+
+					<label class="form-label" for="iadnLogo">Logo</label>
+					<div class="divLogo p-3" onclick="document.getElementById('iadnLogo').click();">
+						<img id="iadnLogo_view" src="<?= $_SESSION['iadnLogo']; ?>" />
+					</div>
+					<div class="form-error"><?= $error['iadnLogo'] ?? ''; ?></div>
+					<?php if ( $_SESSION['iadnLogo'] != 'assets/img/logo_default.png' ): ?>
+					<i onclick="sweetAlert('Vous confirmez ?',
+											'Pour la suppression définitive  de ce logo !',
+											'?route=parametres&deleteLogo&<?= csrf(); ?>',
+											'warning')" class="bi bi-trash bx-sm link" title='Supprimer le logo'></i>
+					<?php endif; ?>
 					<div class="my-1 text-end">
-						<a href="?route=profil" class="mybtn-light"
+						<a href="?route=parametres" class="mybtn-light"
 							onclick="Processing()">Annuler</a>
 						<button type="submit" class="mybtn" onclick="Processing()"
-							name="subFormProfil">Enregistrer</button>
+							name="subFormParams">Enregistrer</button>
 					</div>
 				</div>
-				<div class="col-sm-12 col-md-8 col-lg-3 col-xl-3">
-					<label class="form-label" for="iadnLogo">Logo</label>
-
-				</div>
-			</form>
+		</div>
+		</form>
 		</div>
 	</section>
 

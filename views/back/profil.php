@@ -14,10 +14,10 @@
 			} else {
 				setFlash("Désolé ! ",$updatePassword['response'], "danger");
 			}
+			unset($_POST);
 			header("Location:?route=profil");
 			die();
 		}
-
 	} elseif ( isset($_POST['subFormProfil']) ) {
 		unset($_POST['subFormProfil']);
 		$checkData = $membre->checkData($_POST, $_SESSION['Auth']['level'], $_SESSION['Auth']['idMembre']);
@@ -35,6 +35,7 @@
 			} else {
 				setFlash("Désolé ! ",$updateMembre['response'], "danger");
 			}
+			unset($_POST);
 			header("Location:?route=profil");
 			die();
 		}

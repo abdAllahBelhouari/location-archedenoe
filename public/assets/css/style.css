@@ -12,10 +12,14 @@ body {
 	--iadn_beige:#fff5e3;
 }
 
-a {
+a, .link {
 	color: var(--iadn_dark); 
 	text-decoration: none;
 	transition: all .4s;
+}
+.link:hover {
+	color: #f00; 
+	cursor: pointer;
 }
 .bg-iadn-dark {
 	background: var(--iadn_dark);
@@ -172,7 +176,22 @@ h6 {
 .photoArticle {
 	display: none;
 }
-
+.divLogo {
+	width: 100%;
+	background: var(--iadn_hover);
+	border: 1px solid #ddd;
+	transition: all .4s;
+	&:hover {
+		border: 1px solid var(--iadn_dark);
+	}
+}
+#iadnLogo_view {
+	max-width: 250px;
+	max-height: 250px;
+	display: block;
+	margin: auto;
+	cursor: pointer;
+}
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/

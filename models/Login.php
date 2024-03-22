@@ -16,7 +16,6 @@ class Login {
 		global $db;
 		$emailMembre=$db->quote($data['emailMembre']);
 		$Membre=$db->query("SELECT * FROM membre WHERE emailMembre=$emailMembre")->fetch();
-		
 		if ( $Membre ) {
 			if ( password_verify($data['passwordMembre'], $Membre['passwordMembre']) ) {
 				$_SESSION['Auth']=$Membre;

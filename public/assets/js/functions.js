@@ -100,6 +100,7 @@ function Processing() {
 	document.getElementById("page-wrapper").style.display = "none";
 	document.getElementById("Wait").style.display = "block";
 }
+
 function showImgLoading(event, id) {
 	document.getElementById(id).src = URL.createObjectURL(event.target.files[0]);
 }
