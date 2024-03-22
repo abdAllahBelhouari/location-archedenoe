@@ -100,10 +100,7 @@
 
 					<div id="divEntiteMembre" class="form-group expandable"
 						style="display: <?= isset($_POST["typeMembre"])  ? ((int)$_POST["typeMembre"] == 1 ? 'none' : 'block') : 'none'; ?>;">
-						<input type="hidden" name="entite" id="entite"
-							value="<?= $_POST['entite'] ?? '';?>">
-						<label class="form-label" for="entiteMembre">Intitulé de votre <span
-								id="spanEntite"><?= $_POST['entite'] ?? '';?></span></label>
+						<label class="form-label" for="entiteMembre">Intitulé</label>
 						<input type="text" name="entiteMembre" class="form-control"
 							id="entiteMembre" value="<?=$_POST['entiteMembre']??"";?>">
 						<div class="form-error"><?= $error['entiteMembre'] ?? ''; ?></div>

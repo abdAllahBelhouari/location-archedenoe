@@ -1,12 +1,5 @@
 function checkTypeMembre(id) {
-	let div = document.getElementById('divEntiteMembre');
-	if ( id > 1) {
-		let txt = id == 2 ? 'entreprise' : (id == 3 ? 'Association' : 'structure');
-		document.getElementById('spanEntite').innerText = document.getElementById('entite').value = txt;
-		div.style.display = 'block';
-	} else {
-		div.style.display = 'none';
-	}
+	document.getElementById('divEntiteMembre').style.display =  id > 1 ? 'block' : 'none';
 }
 
 function showMdp(id){

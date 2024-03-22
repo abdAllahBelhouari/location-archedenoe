@@ -1,5 +1,5 @@
 <?php
-	Login::controlAccess([1,3]);
+	Membre::controlAccess([1,3]);
 
 
 	

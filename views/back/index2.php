@@ -1,5 +1,5 @@
 <?php
-	Login::controlAccess([1,2]);
+	Membre::controlAccess([1,2]);
 
 	
 	$Title = $Description = "Accueil";

@@ -1,6 +1,6 @@
 <?php
 	$statuts=["","Administrateur","Agent","Client"];
-	$TypeMembre = ['', 'Particulier', 'Professionnel', 'Association', 'Autre'];
+	$TypeMembre = ['', 'Particulier', 'Association', 'Établissement Scolaire',  'Professionnel', 'Autre'];
 	$Paiement = ["", "Carte Bancaire", "Chèque", "Espèces", "Virement", "Exonération"];
 
 	function setFlash($titre,$message,$statut='success'){

@@ -1,5 +1,5 @@
 <?php
-	Login::controlAccess([1]);
+	Membre::controlAccess([1]);
 
 	$Title = $Description = "Gestion des réservations";
 	require_once '../views/header.php';

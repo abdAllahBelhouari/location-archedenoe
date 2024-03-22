@@ -2,15 +2,31 @@
 	
 	$login = new Login();
 
-	if ( isset ($_POST['subFormLogin']) ) {
+	if ( isset($_POST['subFormForget']) ) {
+		unset($_POST['subFormForget']);
+		if ( empty($_POST['emailMembre']) ) {
+			$error['emailMembre']="Saisir votre email";
+			setFlash("Oops !","Veuillez saisir votre email...","danger");
+		} else {
+			$generatePassword = $login->generatePassword($_POST['emailMembre']);
+			if ( $generatePassword["result"] ) {
+				setFlash("Félicitations.",$generatePassword["response"]);
+			} else {
+				setFlash("Désolé !",$generatePassword["response"],"danger");
+			}
+			unset($_POST);
+			header("location:?route=login");
+			die();
+		}
+	} elseif ( isset ($_POST['subFormLogin']) ) {
 		unset($_POST['subFormLogin']);
-		$error=$login->checkData($_POST);
+		$error = $login->checkData($_POST);
 
 		if ( $error ) {
 			$e=count($error)==1?"l'erreur contenue":"les ".count($error)." erreurs contenues";
 			setFlash("Désolé !","Veuillez corriger ".$e." dans le formulaire.","danger");	
 		} else {
-			$connexion=$login->connexion($_POST);
+			$connexion = $login->connexion($_POST);
 			if ( $connexion["result"] ) {
 				setFlash("Félicitations.",$connexion["response"]);
 				header("location:?route=index".$_SESSION['Auth']['level']);
@@ -49,7 +65,7 @@
 				<div class="col-md-3">
 					<div class="form-group" data-aos="fade-right">
 						<label class="form-label">Email</label>
-						<input type="email" name="emailMembre" class="form-control"
+						<input type="text" name="emailMembre" class="form-control"
 							id="emailMembre" placeholder="Votre email"
 							value="<?=$_POST['emailMembre']??"";?>">
 						<div class="form-error"><?= $error['emailMembre'] ?? ''; ?></div>
@@ -73,7 +89,7 @@
 							onclick="Processing()">Valider</button>
 						<div class="mt-5 text-center">
 							<button type="submit" class="mybtn" name="subFormForget"
-								id="btnForget">Mot de
+								onclick="Processing()" id="btnForget">Mot de
 								passe oublié</button><br>
 							<a href='?route=register' onclick="Processing();">S'inscrire</a>
 						</div>

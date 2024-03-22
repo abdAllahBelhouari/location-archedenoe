@@ -1,9 +1,24 @@
 <?php
 	class Membre {
 	
+		public static function controlAccess($level){
+			if ( is_null($_SESSION['Auth']['provisoireMembre']) ) {
+				if ( !in_array($_SESSION['Auth']['level'],$level) ) {
+					header("location:?route=noaccess");
+				}
+			} else {
+				if ( $_GET['route'] != 'updateMdp' ) {
+					setFlash("Mise à jour requise !","Vous utilisez actuellement un mot de passe provisoire.<br>Utiliser le formulaire pour changer ce mot de passe.",'warning');
+					header("location:?route=profil");
+					die();
+				}
+			}
+		}
+	
 		public function checkData( $data, $level, $id = false ) {
 			$error=[];
 			global $db;
+			global $TypeMembre;
 			if ( empty($data["genreMembre"]) ) { 
 				$error['genreMembre']="Définir la civilité";
 			}
@@ -17,12 +32,21 @@
 			} else {
 				$data['prenomMembre'] = trim(mb_convert_case($data['prenomMembre'], MB_CASE_TITLE, "UTF-8"));
 			}
-			if ( $level == 3 ) {			
+			if ( $level == 3 ) {
 				if ( empty($data["typeMembre"]) ) {
 					$error['typeMembre']="Définir le type de membre";
 				} else {
 					if ( (int)$data["typeMembre"] > 1 && empty($data["entiteMembre"]) ) {
-						$error['entiteMembre']="Saisir l'intitulé";
+						$txt = $TypeMembre[$data["typeMembre"]];
+						switch ((int)$data["typeMembre"]) {
+							case 4:
+								$txt = "société";
+								break;
+							case 5:
+								$txt = "structure";
+								break;
+						}
+						$error['entiteMembre']="Saisir l'intitulé de votre  ".$txt;
 					}
 				}
 				if ( !$id ) {
@@ -72,7 +96,7 @@
 					$sql = $db->query("SELECT idMembre FROM membre WHERE emailMembre = $emailMembre")->fetch();
 				}
 				if ( $sql ) {
-					$error['emailMembre']="Cette email est déjà utilisée";
+					$error['emailMembre']="Cet email est déjà utilisé";
 				} 
 			}
 
@@ -197,10 +221,12 @@
 			$passwordMembre = $db->quote($hash);
 			$idMembre = $db->quote($id);
 			$sql = $db->prepare("UPDATE membre SET 
+									provisoireMembre = NULL,
 									passwordMembre = $passwordMembre 
 									WHERE idMembre = $idMembre
 								");
 			if ( $sql->execute() ) {
+				$_SESSION['Auth']['provisoireMembre'] = NULL;
 				$_SESSION['Auth']['passwordMembre'] = $hash;
 				return [
 					'result' => true,
