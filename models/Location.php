@@ -1,6 +1,5 @@
 <?php
-class Location {
-    
-}
-
+	class Location {
+	
+	}
 ?>

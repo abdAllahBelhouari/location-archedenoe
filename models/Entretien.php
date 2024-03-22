@@ -1,6 +1,5 @@
 <?php
-class Entretien {
-    
-}
-
+	class Entretien {
+	
+	}
 ?>

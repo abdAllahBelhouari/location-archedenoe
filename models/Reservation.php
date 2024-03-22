@@ -1,6 +1,5 @@
 <?php
-class Reservation {
-    
-}
-
+	class Reservation {
+	
+	}
 ?>

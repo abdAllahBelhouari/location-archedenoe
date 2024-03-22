@@ -1,7 +1,11 @@
 <?php
 	class Membre {
-	
-		public static function controlAccess($level){
+		/**
+		 * 	CONTRÔLE D'ACCÈS AUX PAGES ET DU MOT DE PASSE PROVISOIRE
+		 * 	
+		 * @param int niveau d'accès
+		 */
+		public static function controlAccess( $level ) {
 			if ( is_null($_SESSION['Auth']['provisoireMembre']) ) {
 				if ( !in_array($_SESSION['Auth']['level'],$level) ) {
 					header("location:?route=noaccess");
@@ -14,7 +18,14 @@
 				}
 			}
 		}
-	
+		/**
+		 * 	CONTRÔLE DES DONNÉES SAISIES
+		 * 	
+		 * @param array données du formulaire
+		 * @param int niveau d'accès
+		 * @param int identifiant
+		 * @return array erreurs | formulaire mis à jour
+		 */
 		public function checkData( $data, $level, $id = false ) {
 			$error=[];
 			global $db;
@@ -99,14 +110,19 @@
 					$error['emailMembre']="Cet email est déjà utilisé";
 				} 
 			}
-
 			return [
 					'error' => $error,
 					'data' => $data
 				];
 		} 
-		
-		public function createMembre($data, $level) {
+		/**
+		 * 	CRÉATION D'UNE FICHE MEMBRE
+		 * 	
+		 * @param array données du formulaire
+		 * @param int niveau d'accès
+		 * @return array  boolean | message
+		 */
+		public function createMembre ( $data, $level ) {
 			global $db;
 			$genreMembre = $db->quote($data['genreMembre']);
 			$nomMembre = $db->quote($data['nomMembre']);
@@ -150,8 +166,14 @@
 				];
 			}
 		}
-		
-		public function updateMembre($data, $id) {
+		/**
+		 * 	MISE À JOUR D'UNE FICHE MEMBRE
+		 * 	
+		 * @param array données du formulaire
+		 * @param int identifiant
+		 * @return array  boolean | message
+		 */
+		public function updateMembre ( $data, $id ) {
 			global $db;
 			$idMembre = $db->quote($id);
 			$genreMembre = $db->quote($data['genreMembre']);
@@ -201,8 +223,13 @@
 				];
 			}
 		}
-
-		public function checkPassword ($data) {
+		/**
+		 * 	CONTRÔLE DES DONNÉES SAISIES POUR LE NOUVEAU MOT DE PASSE
+		 * 	
+		 * @param array données du formulaire
+		 * @return array  boolean | message
+		 */
+		public function checkPassword ( $data ) {
 			$error = [];
 			if ( empty($data['newPass']) ) {
 				$error['newPass'] = "Saisir le mot de passe";
@@ -214,8 +241,14 @@
 			}
 			return $error;
 		}
-
-		public function updatePassword ($pass, $id) {
+		/**
+		 * 	MISE À JOUR DU NOUVEAU MOT DE PASSE
+		 * 	
+		 * @param string mdp saisi
+		 * @param string identifiant
+		 * @return array  boolean | message
+		 */
+		public function updatePassword ( $pass, $id ) {
 			global $db;
 			$hash = password_hash($pass, PASSWORD_DEFAULT);
 			$passwordMembre = $db->quote($hash);

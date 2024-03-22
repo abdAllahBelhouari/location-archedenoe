@@ -1,7 +1,13 @@
 <?php
 
 	class Parametre {
-
+		/**
+		 * 	CONTRÔLE D'ACCÈS AUX PAGES ET DU MOT DE PASSE PROVISOIRE
+		 * 	
+		 * @param array données saisie dans le formulaire
+		 * @param array fichier image
+		 * @return array erreurs | formulaire mis à jour
+		 */
 		public function checkParams ( $data, $file ) {
 			$error = [];
 			if ( empty($data['iadnLibelle']) ) {
@@ -61,13 +67,18 @@
 					$error["iadnLogo"] = "La taille du logo est trop grande ( 2 Mo max. )";
 				}
 			}
-
 			return [
 					'error' => $error,
 					'data' => $data
 				];
 		}
-
+		/**
+		 * 	MISE À JOUR DES INFORMATIONS
+		 * 	
+		 * @param array données saisie dans le formulaire
+		 * @param array fichier image
+		 * @return array  boolean | message
+		 */
 		public function updateParams ( $data, $files ) {
 			/*
 			*	SUPPRESSION DE L'ANCIEN LOGO
@@ -110,14 +121,15 @@
 				];
 			}
 		}
-
 		/**
 		 * 	SUPPRESSION DU LOGO
+		 * 
+		 * @return array  boolean | message
 		 */
 		public function deleteLogo() {
 			global $IADN;
 			/*
-			*	Vérification de l'existance du logo sur le serveur
+			*	VÉRIFICATION DE L'EXISTANCE DU LOGO SUR LE SERVEUR
 			*/
 			if ( file_exists("assets/img/".$IADN["iadnLogo"]) ) {
 				/*

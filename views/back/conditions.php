@@ -56,7 +56,7 @@
 			setFlash("Désolé !","Veuillez corriger ".$e." dans le formulaire.","danger");	
 		} else {
 			if(isset($_GET["condition"]) && $_GET["condition"]){
-				$updateCondition = $condition->updateCondition($_POST,$_GET["condition"]);
+				$updateCondition = $condition->updateCondition($_GET["condition"], $_POST);
 				if($updateCondition["result"]){
 					setFlash("Félicitations.",$updateCondition["response"]);
 				}else{
