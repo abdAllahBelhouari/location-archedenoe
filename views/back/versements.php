@@ -1,7 +1,9 @@
 <?php
 	Membre::controlAccess([1]);
 
-	$Title = $Description = "Gestion des administrateurs";
+	$versement = new Versement();
+
+	$Title = $Description = "Gestion des versements";
 	require_once '../views/header.php';
 	require_once 'navbarBack1.php';
 ?>
@@ -10,7 +12,7 @@
 		<div class="container">
 			<h2>
 				<i class="bi bi-currency-euro"></i>
-				Versements
+				Gestion des versements
 			</h2>
 		</div>
 	</section>
