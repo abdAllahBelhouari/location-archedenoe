@@ -26,9 +26,89 @@
 		<div class="container-fluid">
 			<div class="row py-4">
 				<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-					colonne de gauche
+					<form action="#" method="POST">
 
+						<div class="form-group">
+							<label for="dateDepense"
+								class="form-label">Date</label>
+							<input type="date"
+								name="dateDepense"
+								class="form-control"
+								id="dateDepense"
+								value="<?=$_POST['dateDepense']??"";?>">
+							<div class="form-error">
+								<?= $error['dateDepense'] ?? ''; ?>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="montantDepense"
+								class="form-label">Montant</label>
+							<input type="text"
+								name="montantDepense"
+								class="form-control"
+								id="montantDepense"
+								maxlength="7"
+								value="<?=$_POST['montantDepense']??"";?>">
+							<div class="form-error">
+								<?= $error['montantDepense'] ?? ''; ?>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="modeDepense" class="form-label">Mode</label>
+							<select name="modeDepense" id="modeDepense" class="form-control"
+								onchange="checkModeDepense(this.options[selectedIndex].value);">
+								<option value="" selected></option>
+								<?php for ( $t=1 ; $t < count($Paiement) ; $t++ ) :?>
+								<option <?= (isset($_POST["modeDepense"])  && $_POST["modeDepense"]==$t) ? "selected" : ""; ?>
+									value="<?= $t; ?>">
+									<?= $Paiement[$t]; ?>
+								</option>
+								<?php endfor; ?>
+							</select>
+							<div class="form-error">
+								<?= $error['modeDepense'] ?? ''; ?></div>
+							</div>
+						</div>	
+
+						<div class="form-group">
+							<label for="idSecteur"
+								class="form-label">Secteur</label>
+							<select name="idSecteur" id="idSecteur"
+								class="form-control">
+								<option value="" selected></option>
+								<?php foreach ($Secteurs as $secteur) :?>
+								<option <?= (isset($_POST["idSecteur"])  && $_POST["idSecteur"]==$secteur["idSecteur"]) ? "selected" : ""; ?>
+									value="<?= $secteur["idSecteur"]; ?>">
+									<?= $secteur["libelleSecteur"]; ?>
+								</option>
+								<?php endforeach; ?>
+							</select>
+							<div class="form-error">
+								<?= $error['idSecteur'] ?? ''; ?></div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="infoDepense" class="form-label">Informations</label>
+							<textarea name="infoDepense" id="infoDepense" rows="5"
+								class="form-control"><?=$_POST['infoDepense']??"";?></textarea>
+							<div class="form-error"><?= $error['infoDepense'] ?? ''; ?></div>
+						</div>
+
+						<div class="text-end">
+							<a href="?route=depenses"
+								onclick="Processing()"
+								class="mybtn-light">Annuler</a>
+							<button type="submit"
+								onclick="Processing()"
+								class="mybtn"
+								name="subFormDepense"><?= isset($_GET["depense"]) && $_GET["depense"]?'Modifier':'Ajouter'; ?></button>
+						</div>
+					</form>
 				</div>
+
 				<div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
 					<h5>
 						Liste des dépenses
@@ -41,13 +121,13 @@
 									<th>Date</th>
 									<th class="w-200p">Montant</th>
 									<th class="w-100p">Mode</th>
-									<th class="w-100p">Infos</th>
+									<th class="w-100p">Informations</th>
 									<th class="w-100p">Secteur</th>
 								</tr>
 							</thead>
 							<tbody>
-								<?php if($Articles):?>
-								<?php foreach ($Articles as $article):?>
+								<?php if($Depenses):?>
+								<?php foreach ($Depenses as $depense):?>
 								<tr>
 									<td>
 										<div class="dropdown float-end">
@@ -60,26 +140,18 @@
 												<li>
 													<a class="dropdown-item"
 														onclick="Processing()"
-														href="?route=articles&article=<?= $article['idArticle']?>">
+														href="?route=depenses&depense=<?= $depense['idDepense']?>">
 														<i
 															class="bi bi-pencil-fill sub-bi"></i>
 														Modifier</a>
 												</li>
-												<li>
-													<a class="dropdown-item"
-														onclick="Processing()"
-														href="?route=articles&disponible=<?= $article['idArticle']?>">
-														<i
-															class="bi bi-database-fill-<?= is_null($article['disponibleArticle']) ? 'slash' : 'check' ;?> sub-bi"></i>
-														Rendre
-														<?= is_null($article['disponibleArticle']) ? 'disponible' : 'indisponible' ;?></a>
-												</li>
+												
 												<li>
 													<a class="dropdown-item"
 														href="#"
 														onclick="sweetAlert('Vous confirmez ?',
-																					'La suppression de cet article sera définitive !',
-																					'?route=articles&delete=<?= $article['idArticle']; ?>&<?= csrf(); ?>',
+																					'La suppression de cette dépense sera définitive !',
+																					'?route=depenses&delete=<?= $depense['idDepense']; ?>&<?= csrf(); ?>',
 																					'warning')">
 														<i
 															class="bi bi-trash-fill sub-bi"></i>
@@ -87,28 +159,27 @@
 												</li>
 											</ul>
 										</div>
-										<i
-											class="bi bi-database-fill-<?= is_null($article['disponibleArticle']) ? 'slash sub-bi' : 'check col-iadn' ;?> bi-lg"></i>
-										<?= $article['libelleArticle']; ?>
+										
+										<?= $depense['dateDepense']; ?>
 									</td>
 									<td>
-										<?= $article['libelleCategorie']; ?>
+										<?= $depense['montantDepense']; ?>
 									</td>
 									<td class="text-end">
-										<?= empty($article['tarifHeureArticle'])? "" : number_format($article['tarifHeureArticle'], 2, ',', ' ' ); ?>
+										<?= $depense['modeDepense']; ?>
 									</td>
 									<td class="text-end">
-										<?= empty($article['tarifJourArticle'])? "" : number_format($article['tarifJourArticle'], 2, ',', ' ' ); ?>
+										<?= $depense['infoDepense']; ?>
 									</td>
 									<td class="text-end">
-										<?= empty($article['tarifWeekArticle'])? "" : number_format($article['tarifWeekArticle'], 2, ',', ' ' ); ?>
+										<?= $depense['secteurDepense']; //Jointure??>
 									</td>
 								</tr>
 								<?php endforeach; ?>
 								<?php else: ?>
 								<tr>
 									<td colspan="5" class="text-center py-4">
-										Aucun article enregistré
+										Aucune dépense enregistrée
 									</td>
 								</tr>
 								<?php endif; ?>
